@@ -1,4 +1,4 @@
-# Assignment 02 - Github Repo
+# :desktop_computer: Assignment 02 - Github Repo
 ## Assignment Description
 ### To create a github repository for the 4142 Programming Language Concepts class. 
 
