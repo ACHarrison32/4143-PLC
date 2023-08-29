@@ -59,5 +59,5 @@ func main() {
 #### this will create another file in your folder that is named similar to your go file. In this case it was named Assignment03.exe, This is how you know it working
 #### Once you have done this you want to type in the next command: go run Assignment03.go, Make sure you are running the .go file and not the .exe file
 #### It will then print your output:
-<img src = " " >
+<img src = "https://github.com/ACHarrison32/4143-PLC/blob/main/Assignments/A03/HelloWorld.PNG" >
 
