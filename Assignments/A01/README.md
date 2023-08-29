@@ -1,4 +1,4 @@
-# :telephone_receiver: A01 - Establishing Comms
+# :telephone_receiver: Assignment 01 - Establishing Comms
 ## :bookmark_tabs: Assignment Description
 ### Join the slack and roster for 4143 Programming Language Concepts
 
