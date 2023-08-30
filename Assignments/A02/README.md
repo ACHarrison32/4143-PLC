@@ -1,6 +1,6 @@
 # :desktop_computer: Assignment 02 - Github Repo
 ## :bookmark_tabs: Assignment Description
-### To create a github repository for the 4142 Programming Language Concepts class. 
+### To create a github repository for the 4143 Programming Language Concepts class. 
 
 # :keyboard: Repo
 ### If you're reading this then you are already on my repository for said class. 
