@@ -6,7 +6,7 @@
 #### First you start by downloading GoLang on their website. For Windows users like me I went [Here](https://go.dev/dl/).
 #### After installing GoLang you want to head over to your file explorer and right click on This PC. Then click on "Properties"
 #### Once you have done this, click on "Advance System Settings" and locate the enviorment variable in the "Advanced" Section.
-#### In the User Variable section locate your Path variable and click edit. You will then add a New variable to it. This will be your go/bin file path. Mine looked like this: C:\Program Files\Go\bin
+#### In the User Variable section check to make sure the Path has been added.
 ## :keyboard: Step 2 - Using GoLang
 #### Once everything is download you are going to want to create your go program.
 #### Example: Assignment03.go 
