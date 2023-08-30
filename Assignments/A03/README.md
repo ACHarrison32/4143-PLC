@@ -9,7 +9,7 @@
 #### In the User Variable section check to make sure the Path has been added.
 ## :keyboard: Step 2 - Using GoLang
 #### Once everything is download you are going to want to create your go program.
-#### Example: Assignment03.go 
+#### Example: A03.go 
 #### Once you have create your file you are going to want to add you code:
 
 ``` Go
@@ -55,9 +55,9 @@ func main() {
 }
 ```
 
-#### Once you have created your code you will then go to your command terminal and run the command: go build Assignment03.go
-#### this will create another file in your folder that is named similar to your go file. In this case it was named Assignment03.exe, This is how you know it working
-#### Once you have done this you want to type in the next command: go run Assignment03.go, Make sure you are running the .go file and not the .exe file
+#### Once you have created your code you will then go to your command terminal and run the command: go build A03.go
+#### this will create another file in your folder that is named similar to your go file. In this case it was named A03.exe, This is how you know it working
+#### Once you have done this you want to type in the next command: go run A03.go, Make sure you are running the .go file and not the .exe file
 #### It will then print your output:
 <img src = "https://github.com/ACHarrison32/4143-PLC/blob/main/Assignments/A03/HelloWorld.PNG" >
 
