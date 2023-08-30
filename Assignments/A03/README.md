@@ -1,6 +1,6 @@
 # :earth_americas: Assignment 03 - "Hello World"
 ## :bookmark_tabs: Assignemt Description
-### Figure out how to Go Lang to create a program to print out "Hello World"
+### Figure out how to use GoLang to create a program to print out "Hello World"
 
 ## :floppy_disk: Step 1 - Installation 
 #### First you start by downloading GoLang on their website. For Windows users like me I went [Here](https://go.dev/dl/).
