@@ -32,8 +32,8 @@ conferenceTickets, remainingTickets)
 }
 ```
 ## Data Types
-### You need to tell Go Compiler, the data type when declaring the variable
-### Type Inference: BUT, Go can infer the type when you assign a value
+#### You need to tell Go Compiler, the data type when declaring the variable
+#### Type Inference: BUT, Go can infer the type when you assign a value
 ``` go
 package main
 
@@ -144,11 +144,11 @@ func main() {
 }
 ```
 ## Arrays and Slices 
-### Slice is an abstraction of an array
-### Slices are more flexible and powerful: variable-length or get a sub-array of its own
-### Slices are also index-based and have a size, but is resized when needed
-### Append adds the elements at the end of the slice
-### Append grows the slice if a greater capacity is needed and returns the updated slice value
+#### Slice is an abstraction of an array
+#### Slices are more flexible and powerful: variable-length or get a sub-array of its own
+#### Slices are also index-based and have a size, but is resized when needed
+#### Append adds the elements at the end of the slice
+#### Append grows the slice if a greater capacity is needed and returns the updated slice value
 ``` go
 package main
 
@@ -207,11 +207,11 @@ func main() {
 }
 ```
 ## Loops
-### You only have the "for loop" loop
-### Range iterates over elements for different data strictures (so not only arrays and slices) (line 279)
-### string.Fields() splits the string with white space as seperator (line 280)
-### _ Blank identifier to ignore a variable you dont want to use (line 279)
-### with Go you need to make unused variables explicit
+#### You only have the "for loop" loop
+#### Range iterates over elements for different data strictures (so not only arrays and slices) (line 279)
+#### string.Fields() splits the string with white space as seperator (line 280)
+#### _ Blank identifier to ignore a variable you dont want to use (line 279)
+#### with Go you need to make unused variables explicit
 ``` go
 package main
 
@@ -279,8 +279,8 @@ func main() {
 }
 ```
 ## If Else Statements
-### Break statement terminates the for loop and continues with the code right after the for loop
-### Continue statement causes loop to skip the remainder of its body and immediately retesting its condition
+#### Break statement terminates the for loop and continues with the code right after the for loop
+#### Continue statement causes loop to skip the remainder of its body and immediately retesting its condition
 ``` go
 package main
 
