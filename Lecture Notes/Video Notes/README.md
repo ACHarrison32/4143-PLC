@@ -1,5 +1,23 @@
 # Video Notes for GoLang
 
+## Contents
+#### Example One
+#### Variables and Constants
+#### Data Types
+#### Getting User Input Data
+#### Book Ticket Logic
+#### Arrays and Slices
+#### Loops
+#### If Statement
+#### If Else Statement
+#### For Loops Extended
+#### Validating User Input
+#### Functions
+#### Creating Packages
+#### Maps
+#### Structs
+#### Concurrency
+
 ## Example One
 ``` go
 // This declares that the code belongs to the main package.
