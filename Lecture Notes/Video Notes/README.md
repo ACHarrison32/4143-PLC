@@ -328,38 +328,45 @@ func main() {
 #### _ Blank identifier to ignore a variable you dont want to use (line 279)
 #### with Go you need to make unused variables explicit
 ``` go
+// The main package is the default package for Go applications.
 package main
 
+// Importing standard libraries for I/O and string operations.
 import (
 	"fmt"
 	"strings"
 )
 
+// The main function is the entry point of the application.
 func main() {
 
+	// Defining and initializing some essential variables.
 	conferenceName := "Go Conference"
 	const conferencetTickets = 50
 	var remainingTickets uint = 50
 	var bookings []string
-	// bookings := []string{} Same as the line above
 
+	// Displaying the data types of the given variables.
 	fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n",
 		conferencetTickets, remainingTickets, conferenceName)
 
-	fmt.Println("Welcome to", conferenceName, "booking applicaiton")
-	// fmt.Printf("Welcome to" %v "booking applicaiton\n", conferenceName)
+	// Welcoming users to the booking application.
+	fmt.Println("Welcome to", conferenceName, "booking application")
+
+	// Informing users about ticket availability.
 	fmt.Println("We have a total of", conferencetTickets, "tickets and", remainingTickets,
 		"are still available")
-	// fmt.Printf("We have a total of" %v "tickets and" %v "are still available\n",
-	// conferenceTickets, remainingTickets)
+
+	// Prompting users to make a booking.
 	fmt.Println("Get your tickets here to attend")
 
+	// Infinite loop to continually accept bookings.
 	for {
-		var firstName string
-		var lastName string
-		var email string
+		// Variables to store user input.
+		var firstName, lastName, email string
 		var userTickets uint
 
+		// Collecting user details and desired number of tickets.
 		fmt.Println("Enter your first name: ")
 		fmt.Scan(&firstName)
 		fmt.Println("Enter your last name: ")
@@ -369,29 +376,37 @@ func main() {
 		fmt.Println("Enter number of tickets: ")
 		fmt.Scan(&userTickets)
 
+		// Updating the count of available tickets.
 		remainingTickets = remainingTickets - userTickets
+		
+		// Storing the name of the person making the booking.
 		bookings = append(bookings, firstName+" "+lastName)
 
-		//fmt.Printf("The whole array: %v\n", bookings)
-		//fmt.Printf("The whole slice: %v\n", bookings)
-		//fmt.Printf("The first value: %v\n", bookings[0])
-		//fmt.Printf("The array type: %T\n", bookings)
-		//fmt.Printf("The slice type: %T\n", bookings)
-		//fmt.Printf("The array length: %v\n", len(bookings))
-		//fmt.Printf("The slice length: %v\n", len(bookings))
-
+		// Confirming the booking to the user.
 		fmt.Println("Thank you", firstName, lastName, "for booking", userTickets,
-			"tickets. You will reviece a confirmation email at", email)
+			"tickets. You will receive a confirmation email at", email)
+
+		// Displaying updated ticket availability.
 		fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
 
+		// Initialize an empty slice to store first names from the bookings.
 		firstNames := []string{}
+
+		// Loop through each booking in the bookings slice.
 		for _, booking := range bookings {
-			var names = strings.Fields(booking)
-			firstNames = append(firstNames, names[0])
+    
+    			// Split the booking string (which presumably has names) into a slice of words.
+    			// Typically, the string might look like "First Last", so "Fields" will create ["First", "Last"].
+    			names := strings.Fields(booking)
+
+    			// Append the first word (or the first name) from the split result to our firstNames slice.
+    			firstNames = append(firstNames, names[0])
 		}
+		// Displaying all the first names of users who've booked tickets.
 		fmt.Printf("These are all our bookings: %v\n", firstNames)
 	}
 }
+
 ```
 ## If Else Statements
 #### Break statement terminates the for loop and continues with the code right after the for loop
