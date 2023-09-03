@@ -22,23 +22,39 @@ func main() {
 ```
 ## Variables and Constants
 ``` go
+// The code belongs to the main package, which means this will create an executable program.
 package main
 
+// Here, the "fmt" package is imported, which provides functions for formatted I/O operations.
 import "fmt"
 
+// This is the main function, the entry point of the Go program.
 func main() {
 
-	var conferenceName = "Go Conference"
-	const conferencetTickets = 50
-	var remainingTickets = 50
+    // Declare and initialize a variable named 'conferenceName' with the value "Go Conference".
+    var conferenceName = "Go Conference"
+    
+    // Declare a constant named 'conferencetTickets' with the value 50.
+    // Constants cannot be changed after they are initialized.
+    const conferencetTickets = 50
+    
+    // Declare and initialize a variable named 'remainingTickets' with the value 50.
+    var remainingTickets = 50
 
-	fmt.Println("Welcome to", conferenceName, "booking applicaiton")
-	// fmt.Printf("Welcome to" %v "booking applicaiton\n", conferenceName)
-	fmt.Println("We have a total of", conferencetTickets, "tickets and", remainingTickets,
-"are still available")
-	// fmt.Printf("We have a total of" %v "tickets and" %v "are still available\n",
-conferenceTickets, remainingTickets)
-	fmt.Println("Get your tickets here to attend")
+    // Print a welcome message followed by the conference name.
+    fmt.Println("Welcome to", conferenceName, "booking applicaiton")
+    
+    // This line is commented out. It's an alternative way of printing the welcome message
+    // fmt.Printf("Welcome to %v booking application\n", conferenceName)
+    
+    // Print the total number of tickets and how many are still available.
+    fmt.Println("We have a total of", conferencetTickets, "tickets and", remainingTickets, "are still available")
+    
+    // This line is commented out. It's an alternative way of printing the ticket details
+    // fmt.Printf("We have a total of %v tickets and %v are still available\n", conferencetTickets, remainingTickets)
+    
+    // Print a message prompting users to get their tickets.
+    fmt.Println("Get your tickets here to attend")
 }
 ```
 ## Data Types
