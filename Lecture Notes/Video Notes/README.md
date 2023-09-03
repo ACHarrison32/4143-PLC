@@ -408,97 +408,64 @@ func main() {
 }
 
 ```
-## If Else Statements
+## If Statement
 #### Break statement terminates the for loop and continues with the code right after the for loop
 #### Continue statement causes loop to skip the remainder of its body and immediately retesting its condition
 ``` go
+// Declare the main package. Every executable Go application must have one 'main' package.
 package main
 
+// Import the necessary packages.
 import (
-	"fmt"
-	"strings"
+	"fmt"      // This package implements formatted I/O with functions analogous to C's printf and scanf.
+	"strings"  // This package provides simple functions to manipulate UTF-8 encoded strings.
 )
 
+// main function is the entry point of every Go program.
 func main() {
 
+	// Declare and initialize a variable for the name of the conference.
 	conferenceName := "Go Conference"
-	const conferencetTickets = 50
-	var remainingTickets uint = 50
-	var bookings []string
-	// bookings := []string{} Same as the line above
 
+	// Declare a constant that specifies the total number of available conference tickets.
+	const conferencetTickets = 50
+
+	// Declare and initialize a variable for the number of remaining tickets.
+	var remainingTickets uint = 50  // uint means "unsigned integer". 
+
+	// Declare a slice to store the names of those who've booked. 
+	// A slice is a dynamic list in Go that can grow or shrink in size.
+	var bookings []string
+
+	// Print the type of each variable using format specifiers.
 	fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n",
 		conferencetTickets, remainingTickets, conferenceName)
 
-	fmt.Println("Welcome to", conferenceName, "booking applicaiton")
-	// fmt.Printf("Welcome to" %v "booking applicaiton\n", conferenceName)
+	// Print a welcome message to the console.
+	fmt.Println("Welcome to", conferenceName, "booking application")
+
+	// Print the number of total and remaining tickets.
 	fmt.Println("We have a total of", conferencetTickets, "tickets and", remainingTickets,
 		"are still available")
-	// fmt.Printf("We have a total of" %v "tickets and" %v "are still available\n",
-	// conferenceTickets, remainingTickets)
+
+	// Another print statement prompting users to get their tickets.
 	fmt.Println("Get your tickets here to attend")
 
+	// Start of the infinite loop to continue taking bookings until manually stopped or tickets run out.
 	for {
------------------------------------------------------------------------------------------------- If Statement
-var firstName string
-var lastName string
-var email string
-var userTickets uint
-
-fmt.Println("Enter your first name: ")
-fmt.Scan(&firstName)
-fmt.Println("Enter your last name: ")
-fmt.Scan(&lastName)
-fmt.Println("Enter your email address: ")
-fmt.Scan(&email)
-fmt.Println("Enter number of tickets: ")
-fmt.Scan(&userTickets)
-
-if userTickets > remainingTickets {
-	fmt.Printf("We only have %v tickets remaining, so you cant book %v tickets dumbass\n",
-remainingTickets, userTickets)
-	continue
-}
-
-remainingTickets = remainingTickets - userTickets
-bookings = append(bookings, firstName+" "+lastName)
-
-//fmt.Printf("The whole array: %v\n", bookings)
-//fmt.Printf("The whole slice: %v\n", bookings)
-//fmt.Printf("The first value: %v\n", bookings[0])
-//fmt.Printf("The array type: %T\n", bookings)
-//fmt.Printf("The slice type: %T\n", bookings)
-//fmt.Printf("The array length: %v\n", len(bookings))
-//fmt.Printf("The slice length: %v\n", len(bookings))
-
-fmt.Println("Thank you", firstName, lastName, "for booking", userTickets,
-	"tickets. You will reviece a confirmation email at", email)
-fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
-
-firstNames := []string{}
-for _, booking := range bookings {
-	var names = strings.Fields(booking)
-	firstNames = append(firstNames, names[0])
-}
-fmt.Printf("These are all our bookings: %v\n", firstNames)
-
-if remainingTickets == 0 {
-	// end program
-	fmt.Println("Our conference is booked up. Sorry bout ya luck")
-	break
-}
-```
-## If Else Statement
-``` go
-// ------------------------------------------------------------------------------------------------ If Else Statement
-// Or you can do something like this for an is else statement:
+		// Declare string variables to store user input for their personal details.
 		var firstName string
 		var lastName string
 		var email string
+
+		// Declare a uint variable to store the number of tickets the user wants to book.
 		var userTickets uint
 
+		// Prompt user for first name and read it into the firstName variable.
 		fmt.Println("Enter your first name: ")
 		fmt.Scan(&firstName)
+
+		// Similar prompts and reads for last name, email, and number of tickets.
 		fmt.Println("Enter your last name: ")
 		fmt.Scan(&lastName)
 		fmt.Println("Enter your email address: ")
@@ -506,74 +473,223 @@ if remainingTickets == 0 {
 		fmt.Println("Enter number of tickets: ")
 		fmt.Scan(&userTickets)
 
-		if userTickets <= remainingTickets {
-			remainingTickets = remainingTickets - userTickets
-			bookings = append(bookings, firstName+" "+lastName)
+		// Check if the number of tickets user wants to book is more than the remaining tickets.
+		if userTickets > remainingTickets {
+			// Print a message informing the user they can't book more than the available tickets.
+			fmt.Printf("We only have %v tickets remaining, so you can't book %v tickets.\n",
+				remainingTickets, userTickets)
+			continue  // This will skip the rest of this loop iteration, taking the user back to input prompts.
+		}
 
-			//fmt.Printf("The whole array: %v\n", bookings)
-			//fmt.Printf("The whole slice: %v\n", bookings)
-			//fmt.Printf("The first value: %v\n", bookings[0])
-			//fmt.Printf("The array type: %T\n", bookings)
-			//fmt.Printf("The slice type: %T\n", bookings)
-			//fmt.Printf("The array length: %v\n", len(bookings))
-			//fmt.Printf("The slice length: %v\n", len(bookings))
+		// Deduct the number of tickets user booked from the remaining tickets.
+		remainingTickets = remainingTickets - userTickets
 
-			fmt.Println("Thank you", firstName, lastName, "for booking", userTickets,
-				"tickets. You will reviece a confirmation email at", email)
-			fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
+		// Add the user's full name to the bookings slice.
+		bookings = append(bookings, firstName+" "+lastName)
 
-			firstNames := []string{}
-			for _, booking := range bookings {
-				var names = strings.Fields(booking)
-				firstNames = append(firstNames, names[0])
-			}
-			fmt.Printf("These are all our bookings: %v\n", firstNames)
+		//fmt.Printf("The whole array: %v\n", bookings)
+		//fmt.Printf("The whole slice: %v\n", bookings)
+		//fmt.Printf("The first value: %v\n", bookings[0])
+		//fmt.Printf("The array type: %T\n", bookings)
+		//fmt.Printf("The slice type: %T\n", bookings)
+		//fmt.Printf("The array length: %v\n", len(bookings))
+		//fmt.Printf("The slice length: %v\n", len(bookings))
+		
+		// Print a thank-you message to the user and inform them of their booking details.
+		fmt.Println("Thank you", firstName, lastName, "for booking", userTickets,
+			"tickets. You will receive a confirmation email at", email)
 
-			if remainingTickets == 0 {
-				// end program
-				fmt.Println("Our conference is booked up. Sorry bout ya luck")
-				break
-			}
-		} else {
-			fmt.Printf("We only have %v tickets remaining, so you cant book %v tickets dumbass\n",
-		remainingTickets, userTickets)
+		// Print how many tickets are still available.
+		fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
+
+		// Declare a slice to store only the first names of those who've booked.
+		firstNames := []string{}
+
+		// Loop through each booking to extract and store first names.
+		for _, booking := range bookings {
+			names := strings.Fields(booking)  // This splits the full name into separate words.
+			firstNames = append(firstNames, names[0])  // Assuming the first word is the first name.
+		}
+
+		// Print out all the first names of those who've booked.
+		fmt.Printf("These are all our bookings: %v\n", firstNames)
+
+		// Check if there are no tickets left.
+		if remainingTickets == 0 {
+			// If true, print a message to inform the user and then break out of the infinite loop.
+			fmt.Println("Our conference is fully booked. Thank you for your interest!")
+			break
 		}
 	}
 }
 
-You can also do this with the for loop
+```
+## If Else Statement
+#### Or you can do something like this for an is else statement:
+``` go
+// Declare the main package. Every executable Go application must have one 'main' package.
 package main
 
+// Import the necessary packages.
 import (
-	"fmt"
-	"strings"
+	"fmt"      // This package implements formatted I/O with functions analogous to C's printf and scanf.
+	"strings"  // This package provides simple functions to manipulate UTF-8 encoded strings.
 )
 
+// main function is the entry point of every Go program.
 func main() {
 
+	// Declare and initialize a variable for the name of the conference.
 	conferenceName := "Go Conference"
-	const conferencetTickets = 50
-	var remainingTickets uint = 50
-	var bookings []string
-	// bookings := []string{} Same as the line above
 
+	// Declare a constant that specifies the total number of available conference tickets.
+	const conferencetTickets = 50
+
+	// Declare and initialize a variable for the number of remaining tickets.
+	var remainingTickets uint = 50  // uint means "unsigned integer". 
+
+	// Declare a slice to store the names of those who've booked. 
+	// A slice is a dynamic list in Go that can grow or shrink in size.
+	var bookings []string
+
+	// Print the type of each variable using format specifiers.
 	fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n",
 		conferencetTickets, remainingTickets, conferenceName)
 
-	fmt.Println("Welcome to", conferenceName, "booking applicaiton")
-	// fmt.Printf("Welcome to" %v "booking applicaiton\n", conferenceName)
+	// Print a welcome message to the console.
+	fmt.Println("Welcome to", conferenceName, "booking application")
+
+	// Print the number of total and remaining tickets.
 	fmt.Println("We have a total of", conferencetTickets, "tickets and", remainingTickets,
 		"are still available")
-	// fmt.Printf("We have a total of" %v "tickets and" %v "are still available\n",
-	// conferenceTickets, remainingTickets)
+
+	// Another print statement prompting users to get their tickets.
 	fmt.Println("Get your tickets here to attend")
 
-	for remainingTickets > 0 && len(bookings)< 50{
+	// Start of the infinite loop to continue taking bookings until manually stopped or tickets run out.
+	for {
+		// Declare string variables to hold user's first name, last name, and email.
+		var firstName string
+		var lastName string
+		var email string
+
+		// Declare a variable to hold the number of tickets the user wants to book.
+		// Using 'uint' to ensure the number of tickets is always non-negative.
+		var userTickets uint
+
+		// Prompt the user for their first name.
+		fmt.Println("Enter your first name: ")
+		// Scan the user's input and store it in the 'firstName' variable.
+		fmt.Scan(&firstName)
+
+		// Prompt the user for their last name.
+		fmt.Println("Enter your last name: ")
+		// Scan the user's input and store it in the 'lastName' variable.
+		fmt.Scan(&lastName)
+
+		// Prompt the user for their email address.
+		fmt.Println("Enter your email address: ")
+		// Scan the user's input and store it in the 'email' variable.
+		fmt.Scan(&email)
+
+		// Prompt the user for the number of tickets they wish to book.
+		fmt.Println("Enter number of tickets: ")
+		// Scan the user's input and store it in the 'userTickets' variable.
+		fmt.Scan(&userTickets)
+
+		// Check if the number of tickets the user wants is less than or equal to the number of remaining tickets.
+		if userTickets <= remainingTickets {
+			// Deduct the booked tickets from the total remaining tickets.
+			remainingTickets = remainingTickets - userTickets
+
+			// Add the user's first and last name to the bookings slice.
+			bookings = append(bookings, firstName+" "+lastName)
+
+			// Commented-out lines for potentially useful debugging information about the 'bookings' slice.
+
+			// Print a confirmation message thanking the user for their booking.
+			fmt.Println("Thank you", firstName, lastName, "for booking", userTickets,
+				"tickets. You will receive a confirmation email at", email)
+
+			// Notify the user about the number of remaining tickets.
+			fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
+
+			// Declare a new slice to hold the first names of all attendees.
+			firstNames := []string{}
+
+			// Loop through the bookings and extract the first name of each attendee.
+			for _, booking := range bookings {
+				names := strings.Fields(booking) // Split the full name into individual words.
+				firstNames = append(firstNames, names[0]) // Assuming the first word is the first name.
+			}
+
+			// Print the list of all attendees' first names.
+			fmt.Printf("These are all our bookings: %v\n", firstNames)
+
+			// Check if all the tickets have been booked.
+			if remainingTickets == 0 {
+				// Notify the user that all the tickets have been sold out.
+				fmt.Println("Our conference is booked up. Sorry about your luck!")
+				break // Exit the loop.
+			}
+
+		} else {
+			// If the user is trying to book more tickets than what's available, inform them.
+			fmt.Printf("We only have %v tickets remaining, so you can't book %v tickets.\n", remainingTickets, userTickets)
+		}
+	}
+}
+
+```
+#### You can also do this with the for loop
+``` go
+// Declare the main package. Every executable Go application must have one 'main' package.
+package main
+
+// Import the necessary packages.
+import (
+	"fmt"      // This package implements formatted I/O with functions analogous to C's printf and scanf.
+	"strings"  // This package provides simple functions to manipulate UTF-8 encoded strings.
+)
+
+// main function is the entry point of every Go program.
+func main() {
+	// Initializing a string variable to store the conference name.
+	conferenceName := "Go Conference"
+
+	// Declaring a constant to store the total number of tickets for the conference.
+	const conferencetTickets = 50
+
+	// Initializing a uint (unsigned integer) variable to track the number of remaining tickets.
+	var remainingTickets uint = 50
+
+	// Declaring a slice to store the names of attendees who have booked tickets.
+	var bookings []string
+
+	// Displaying the data types of the defined variables and constants.
+	fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n",
+		conferencetTickets, remainingTickets, conferenceName)
+
+	// Welcoming users to the conference booking application.
+	fmt.Println("Welcome to", conferenceName, "booking application")
+
+	// Informing users about the total number of tickets and how many are still available.
+	fmt.Println("We have a total of", conferencetTickets, "tickets and", remainingTickets,
+		"are still available")
+
+	// Informing users they can start the ticket booking process.
+	fmt.Println("Get your tickets here to attend")
+
+	// Infinite loop to continuously book tickets until they're sold out or maximum bookings are reached.
+	for remainingTickets > 0 && len(bookings) < 50 {
+
+		// Variables to store user input for the booking process.
 		var firstName string
 		var lastName string
 		var email string
 		var userTickets uint
 
+		// Prompting the user for their details and desired number of tickets.
 		fmt.Println("Enter your first name: ")
 		fmt.Scan(&firstName)
 		fmt.Println("Enter your last name: ")
@@ -583,75 +699,94 @@ func main() {
 		fmt.Println("Enter number of tickets: ")
 		fmt.Scan(&userTickets)
 
+		// Checking if the number of tickets requested by the user is available.
 		if userTickets <= remainingTickets {
+			// Subtracting the booked tickets from the total remaining tickets.
 			remainingTickets = remainingTickets - userTickets
+
+			// Adding the user's name to the bookings slice.
 			bookings = append(bookings, firstName+" "+lastName)
 
-			//fmt.Printf("The whole array: %v\n", bookings)
-			//fmt.Printf("The whole slice: %v\n", bookings)
-			//fmt.Printf("The first value: %v\n", bookings[0])
-			//fmt.Printf("The array type: %T\n", bookings)
-			//fmt.Printf("The slice type: %T\n", bookings)
-			//fmt.Printf("The array length: %v\n", len(bookings))
-			//fmt.Printf("The slice length: %v\n", len(bookings))
-
+			// Thanking the user for their booking and providing a confirmation.
 			fmt.Println("Thank you", firstName, lastName, "for booking", userTickets,
-				"tickets. You will reviece a confirmation email at", email)
+				"tickets. You will receive a confirmation email at", email)
+
+			// Informing users about the number of remaining tickets.
 			fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
 
+			// Creating a slice to store the first names of all the attendees.
 			firstNames := []string{}
 			for _, booking := range bookings {
-				var names = strings.Fields(booking)
+				names := strings.Fields(booking)
 				firstNames = append(firstNames, names[0])
 			}
+
+			// Displaying the first names of all the attendees.
 			fmt.Printf("These are all our bookings: %v\n", firstNames)
 
+			// Ending the booking process if all tickets are sold out.
 			if remainingTickets == 0 {
-				// end program
-				fmt.Println("Our conference is booked up. Sorry bout ya luck")
+				fmt.Println("Our conference is booked up. Sorry about your luck!")
 				break
 			}
 		} else {
-			fmt.Printf("We only have %v tickets remaining, so you cant book %v tickets dumbass\n",
-		remainingTickets, userTickets)
+			// Informing the user if they've requested more tickets than available.
+			fmt.Printf("We only have %v tickets remaining, so you can't book %v tickets.\n", remainingTickets, userTickets)
 		}
 	}
 }
 ```
 ## Validating User Input
 ``` go
+// Declare the main package. Every executable Go application must have one 'main' package.
 package main
 
+// Import the necessary packages.
 import (
-	"fmt"
-	"strings"
-)
-
+	"fmt"      // This package implements formatted I/O with functions analogous to C's printf and scanf.
+	"strings"  // This package provides simple functions to manipulate UTF-8 encoded strings.
+)// main function is the entry point of every Go program.
 func main() {
 
+	// Define and initialize a string variable for the name of the conference
 	conferenceName := "Go Conference"
-	const conferencetTickets = 50
-	var remainingTickets uint = 50
-	var bookings []string
-	// bookings := []string{} Same as the line above
 
+	// Define a constant integer for the total number of tickets available for the conference
+	const conferencetTickets = 50
+
+	// Define and initialize a uint (unsigned integer) variable for the number of tickets remaining
+	var remainingTickets uint = 50
+
+	// Declare a slice of strings to keep track of bookings (names of attendees)
+	var bookings []string
+
+
+	// bookings := []string{} This line is an alternative to the one above for initializing the slice
+
+	// Print the type of each variable using printf
 	fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n",
 		conferencetTickets, remainingTickets, conferenceName)
 
+	// Print a welcome message
 	fmt.Println("Welcome to", conferenceName, "booking applicaiton")
-	// fmt.Printf("Welcome to" %v "booking applicaiton\n", conferenceName)
+
+	// Print the total number of tickets and how many are remaining
 	fmt.Println("We have a total of", conferencetTickets, "tickets and", remainingTickets,
 		"are still available")
-	// fmt.Printf("We have a total of" %v "tickets and" %v "are still available\n",
-	// conferenceTickets, remainingTickets)
+
+	// Inform the user they can book tickets
 	fmt.Println("Get your tickets here to attend")
 
+	// Run a loop until all tickets are booked or until the number of bookings reaches 50
 	for remainingTickets > 0 && len(bookings) < 50 {
+
+		// Declare variables to store user inputs
 		var firstName string
 		var lastName string
 		var email string
 		var userTickets uint
 
+		// Prompt user for inputs
 		fmt.Println("Enter your first name: ")
 		fmt.Scan(&firstName)
 		fmt.Println("Enter your last name: ")
@@ -661,12 +796,23 @@ func main() {
 		fmt.Println("Enter number of tickets: ")
 		fmt.Scan(&userTickets)
 
+		// Validate user inputs:
+		// Check if both first and last name have at least two characters
 		var isValidName bool = len(firstName) >= 2 && len(lastName) >= 2
+
+		// Check if the email contains the "@" character
 		var isValidEmail bool = strings.Contains(email, "@")
+
+		// Check if the number of tickets requested is valid
 		var isValidTicketNumber = userTickets > 0 && userTickets <= remainingTickets
 
+		// If all inputs are valid:
 		if isValidName && isValidEmail && isValidTicketNumber {
+
+			// Subtract the booked tickets from the remaining tickets
 			remainingTickets = remainingTickets - userTickets
+
+			// Add the name of the attendee to the bookings slice
 			bookings = append(bookings, firstName+" "+lastName)
 
 			//fmt.Printf("The whole array: %v\n", bookings)
@@ -677,72 +823,102 @@ func main() {
 			//fmt.Printf("The array length: %v\n", len(bookings))
 			//fmt.Printf("The slice length: %v\n", len(bookings))
 
+			// Confirm the booking to the user
 			fmt.Println("Thank you", firstName, lastName, "for booking", userTickets,
-				"tickets. You will reviece a confirmation email at", email)
+				"tickets. You will receive a confirmation email at", email)
+
+			// Display the number of tickets still available
 			fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
 
+			// Extract first names of all bookings for display
 			firstNames := []string{}
 			for _, booking := range bookings {
 				var names = strings.Fields(booking)
 				firstNames = append(firstNames, names[0])
 			}
+
+			// Display all the first names of the attendees
 			fmt.Printf("These are all our bookings: %v\n", firstNames)
 
+			// Check if all tickets are booked
 			if remainingTickets == 0 {
-				// end program
 				fmt.Println("Our conference is booked up. Sorry bout ya luck")
 				break
 			}
 		} else {
+			// If inputs are not valid, display error messages accordingly:
+
+			// If name is invalid:
 			if !isValidName {
-				fmt.Println("I know your lying about your name. Try again buckaroo!")
+				fmt.Println("I know you're lying about your name. Try again buckaroo!")
 			}
+
+			// If email is invalid:
 			if !isValidEmail {
-				fmt.Println("Aren't emails suppose to have and @ symbol. Where was yours? Try harder next time")
+				fmt.Println("Aren't emails supposed to have an @ symbol? Where was yours? Try harder next time")
 			}
+
+			// If number of tickets is invalid:
 			if !isValidTicketNumber {
-				fmt.Printf("Now if we only have %v tickets remaining, how do you expect to recieve %v..."+
-					"Didnt think about that did ya?\n", remainingTickets, userTickets)
+				fmt.Printf("Now if we only have %v tickets remaining, how do you expect to receive %v..."+
+					"Didn't think about that, did ya?\n", remainingTickets, userTickets)
 			}
 		}
 	}
 }
+
 ```
 ## Functions in Go
 ``` go
+// Declare the main package. Every executable Go application must have one 'main' package.
 package main
 
+// Import the necessary packages.
 import (
-	"fmt"
-	"strings"
-)
-
+	"fmt"      // This package implements formatted I/O with functions analogous to C's printf and scanf.
+	"strings"  // This package provides simple functions to manipulate UTF-8 encoded strings.
+)// main function is the entry point of every Go program.
 func main() {
 
+	// Define and initialize a string variable for the name of the conference
 	conferenceName := "Go Conference"
+
+	// Define a constant integer for the total number of tickets available for the conference
 	const conferencetTickets = 50
+
+	// Define and initialize a uint (unsigned integer) variable for the number of tickets remaining
 	var remainingTickets uint = 50
+
+	// Declare a slice of strings to keep track of bookings (names of attendees)
 	var bookings []string
 
+	// Greet users and show the number of tickets available.
 	greetUsers(conferenceName, conferencetTickets, remainingTickets)
 
+	// Continue booking while there are tickets available and the number of bookings is less than 50.
 	for remainingTickets > 0 && len(bookings) < 50 {
-
+		// Obtain user details and desired ticket number.
 		firstName, lastName, email, userTickets := getUserInput()
 
+		// Validate the entered details.
 		isValidName, isValidEmail, isValidTicketNumber := validateUserInput(firstName, lastName, email, userTickets, remainingTickets)
 
+		// Check if all entered details are valid.
 		if isValidName && isValidEmail && isValidTicketNumber {
+			// Update the number of remaining tickets and the bookings list.
 			remainingTickets, bookings = bookTicket(remainingTickets, userTickets, bookings, firstName, lastName, email, conferenceName)
 
+			// Extract the first names from the bookings list and display them.
 			firstNames := getFirstNames(bookings)
 			fmt.Printf("The first names of bookings are: %v\n", firstNames)
 
+			// If no tickets are left, display a message and end the loop.
 			if remainingTickets == 0 {
 				fmt.Println("Our conference is booked up. Sorry bout ya luck")
 				break
 			}
 		} else {
+			// Display appropriate error messages based on the validation results.
 			if !isValidName {
 				fmt.Println("I know you're lying about your name. Try again buckaroo!")
 			}
@@ -756,34 +932,45 @@ func main() {
 	}
 }
 
+// Function to greet the user and display available tickets.
 func greetUsers(confName string, confTickets int, remainingTickets uint) {
 	fmt.Printf("Welcome to %v booking application\n", confName)
 	fmt.Println("We have a total of", confTickets, "tickets and", remainingTickets, "are still available")
 	fmt.Println("Get your tickets here to attend")
 }
 
+// Function to extract and return the first names from the bookings list.
 func getFirstNames(bookings []string) []string {
 	firstNames := []string{}
 	for _, booking := range bookings {
-		var names = strings.Fields(booking)
-		firstNames = append(firstNames, names[0])
+		var names = strings.Fields(booking) // Split the booking string into a slice of words.
+		firstNames = append(firstNames, names[0]) // Add the first word (first name) to the list.
 	}
 	return firstNames
 }
 
+// Function to validate the user's input and return the results.
 func validateUserInput(firstName string, lastName string, email string, userTickets uint, remainingTickets uint) (bool, bool, bool) {
+	// Validate that both first and last names have more than 2 characters.
 	var isValidName bool = len(firstName) > 2 && len(lastName) > 2
+
+	// Validate that the email contains "@".
 	var isValidEmail bool = strings.Contains(email, "@")
+
+	// Validate that the user is requesting a valid number of tickets.
 	var isValidTicketNumber = userTickets > 0 && userTickets <= remainingTickets
+	
 	return isValidName, isValidEmail, isValidTicketNumber
 }
 
+// Function to capture user input and return it.
 func getUserInput() (string, string, string, uint) {
 	var firstName string
 	var lastName string
 	var email string
 	var userTickets uint
 
+	// Obtain inputs from the user.
 	fmt.Println("Enter your first name: ")
 	fmt.Scan(&firstName)
 	fmt.Println("Enter your last name: ")
@@ -796,10 +983,15 @@ func getUserInput() (string, string, string, uint) {
 	return firstName, lastName, email, userTickets
 }
 
+// Function to update the bookings and remaining tickets.
 func bookTicket(remainingTickets uint, userTickets uint, bookings []string, firstName string, lastName string, email string, conferenceName string) (uint, []string) {
+	// Update the number of remaining tickets.
 	remainingTickets = remainingTickets - userTickets
+	
+	// Update the bookings list.
 	bookings = append(bookings, firstName+" "+lastName)
 
+	// Display a confirmation message.
 	fmt.Println("Thank you", firstName, lastName, "for booking", userTickets, "tickets. You will receive a confirmation email at", email)
 	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
 
