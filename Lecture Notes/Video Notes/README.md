@@ -172,46 +172,69 @@ func main() {
 ```
 ## Book Ticket Logic
 ``` go
+// The code belongs to the main package, which means this will create an executable program.
 package main
 
+// Here, the "fmt" package is imported, which provides functions for formatted I/O operations.
 import "fmt"
 
+// This is the main function, the entry point of the Go program.
 func main() {
 
-	conferenceName := "Go Conference"
-	const conferencetTickets = 50
-	var remainingTickets uint = 50
+    // Shorthand declaration and assignment of the value "Go Conference" to the variable 'conferenceName'.
+    conferenceName := "Go Conference"
+    
+    // Declaration of a constant named 'conferencetTickets' with the value of 50.
+    const conferencetTickets = 50
+    
+    // Declaration and initialization of the variable 'remainingTickets' with a value of 50.
+    // The type of this variable is 'uint', which stands for unsigned integer. It can only have non-negative values.
+    var remainingTickets uint = 50
 
-	fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n",
+    // Using the Printf function, this line prints the types of the variables 'conferencetTickets', 
+    // 'remainingTickets', and 'conferenceName'.
+    fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n",
 		conferencetTickets, remainingTickets, conferenceName)
 
-	fmt.Println("Welcome to", conferenceName, "booking applicaiton")
-	// fmt.Printf("Welcome to" %v "booking applicaiton\n", conferenceName)
-	fmt.Println("We have a total of", conferencetTickets, "tickets and", remainingTickets,
-		"are still available")
-	// fmt.Printf("We have a total of" %v "tickets and" %v "are still available\n",
-	// conferenceTickets, remainingTickets)
-	fmt.Println("Get your tickets here to attend")
+    // Printing a welcome message followed by the conference name.
+    fmt.Println("Welcome to", conferenceName, "booking applicaiton")
+    
+    // Printing out the total number of tickets and how many are still available.
+    fmt.Println("We have a total of", conferencetTickets, "tickets and", remainingTickets, "are still available")
+    
+    // Printing a message to encourage users to get their tickets.
+    fmt.Println("Get your tickets here to attend")
 
-	var firstName string
-	var lastName string
-	var email string
-	var userTickets uint
-	// ask user for their name
-	fmt.Println("Enter your first name: ")
-	fmt.Scan(&firstName)
-	fmt.Println("Enter your last name: ")
-	fmt.Scan(&lastName)
-	fmt.Println("Enter your email address: ")
-	fmt.Scan(&email)
-	fmt.Println("Enter number of tickets: ")
-	fmt.Scan(&userTickets)
+    // Declaring string variables to store user's first name, last name, and email.
+    var firstName, lastName, email string
+    // Declaring an unsigned integer variable to store the number of tickets a user wants.
+    var userTickets uint
+    
+    // Prompting the user to enter their first name.
+    fmt.Println("Enter your first name: ")
+    fmt.Scan(&firstName)
 
-	remainingTickets = remainingTickets - userTickets
+    // Prompting the user to enter their last name.
+    fmt.Println("Enter your last name: ")
+    fmt.Scan(&lastName)
 
-	fmt.Println("Thank you", firstName, lastName, "for booking", userTickets,
-		"tickets. You will reviece a confirmation email at", email)
-	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
+    // Prompting the user to enter their email address.
+    fmt.Println("Enter your email address: ")
+    fmt.Scan(&email)
+
+    // Prompting the user to specify the number of tickets they want.
+    fmt.Println("Enter number of tickets: ")
+    fmt.Scan(&userTickets)
+
+    // Updating the 'remainingTickets' variable by subtracting the number of tickets the user has booked.
+    remainingTickets = remainingTickets - userTickets
+
+    // Printing a thank you message with the user's name and the number of tickets they booked, 
+    // as well as mentioning where the confirmation will be sent.
+    fmt.Println("Thank you", firstName, lastName, "for booking", userTickets, "tickets. You will receive a confirmation email at", email)
+    
+    // Printing how many tickets are still available for the conference.
+    fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
 }
 ```
 ## Arrays and Slices 
