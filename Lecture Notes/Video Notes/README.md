@@ -358,7 +358,7 @@ if remainingTickets == 0 {
 	break
 }
 ```
-## If Else Statment
+## If Else Statement
 ``` go
 // ------------------------------------------------------------------------------------------------ If Else Statement
 // Or you can do something like this for an is else statement:
@@ -484,96 +484,6 @@ func main() {
 		} else {
 			fmt.Printf("We only have %v tickets remaining, so you cant book %v tickets dumbass\n",
 		remainingTickets, userTickets)
-		}
-	}
-}
-```
-## Validating User Input
-``` go
-package main
-
-import (
-	"fmt"
-	"strings"
-)
-
-func main() {
-
-	conferenceName := "Go Conference"
-	const conferencetTickets = 50
-	var remainingTickets uint = 50
-	var bookings []string
-	// bookings := []string{} Same as the line above
-
-	fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n",
-		conferencetTickets, remainingTickets, conferenceName)
-
-	fmt.Println("Welcome to", conferenceName, "booking applicaiton")
-	// fmt.Printf("Welcome to" %v "booking applicaiton\n", conferenceName)
-	fmt.Println("We have a total of", conferencetTickets, "tickets and", remainingTickets,
-		"are still available")
-	// fmt.Printf("We have a total of" %v "tickets and" %v "are still available\n",
-	// conferenceTickets, remainingTickets)
-	fmt.Println("Get your tickets here to attend")
-
-	for remainingTickets > 0 && len(bookings) < 50 {
-		var firstName string
-		var lastName string
-		var email string
-		var userTickets uint
-
-		fmt.Println("Enter your first name: ")
-		fmt.Scan(&firstName)
-		fmt.Println("Enter your last name: ")
-		fmt.Scan(&lastName)
-		fmt.Println("Enter your email address: ")
-		fmt.Scan(&email)
-		fmt.Println("Enter number of tickets: ")
-		fmt.Scan(&userTickets)
-
-		var isValidName bool = len(firstName) >= 2 && len(lastName) >= 2
-		var isValidEmail bool = strings.Contains(email, "@")
-		var isValidTicketNumber = userTickets > 0 && userTickets <= remainingTickets
-
-		if isValidName && isValidEmail && isValidTicketNumber {
-			remainingTickets = remainingTickets - userTickets
-			bookings = append(bookings, firstName+" "+lastName)
-
-			//fmt.Printf("The whole array: %v\n", bookings)
-			//fmt.Printf("The whole slice: %v\n", bookings)
-			//fmt.Printf("The first value: %v\n", bookings[0])
-			//fmt.Printf("The array type: %T\n", bookings)
-			//fmt.Printf("The slice type: %T\n", bookings)
-			//fmt.Printf("The array length: %v\n", len(bookings))
-			//fmt.Printf("The slice length: %v\n", len(bookings))
-
-			fmt.Println("Thank you", firstName, lastName, "for booking", userTickets,
-				"tickets. You will reviece a confirmation email at", email)
-			fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
-
-			firstNames := []string{}
-			for _, booking := range bookings {
-				var names = strings.Fields(booking)
-				firstNames = append(firstNames, names[0])
-			}
-			fmt.Printf("These are all our bookings: %v\n", firstNames)
-
-			if remainingTickets == 0 {
-				// end program
-				fmt.Println("Our conference is booked up. Sorry bout ya luck")
-				break
-			}
-		} else {
-			if !isValidName {
-				fmt.Println("I know your lying about your name. Try again buckaroo!")
-			}
-			if !isValidEmail {
-				fmt.Println("Aren't emails suppose to have and @ symbol. Where was yours? Try harder next time")
-			}
-			if !isValidTicketNumber {
-				fmt.Printf("Now if we only have %v tickets remaining, how do you expect to recieve %v..."+
-					"Didnt think about that did ya?\n", remainingTickets, userTickets)
-			}
 		}
 	}
 }
