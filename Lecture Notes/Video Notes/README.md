@@ -1000,47 +1000,64 @@ func bookTicket(remainingTickets uint, userTickets uint, bookings []string, firs
 ```
 ## Packages in Go
 #### Uses a helper.go package that we create
+#### When running this you will need to do: go run main.go helper.go
 #### Main go file:
 ``` go
+// Declare the main package. Every executable Go application must have one 'main' package.
 package main
 
+// Import the necessary packages.
 import (
-	"fmt"
-	"strings"
+	"fmt"      // This package implements formatted I/O with functions analogous to C's printf and scanf.
+	"strings"  // This package provides simple functions to manipulate UTF-8 encoded strings.
 )
-
+// main function is the entry point of every Go program.
 func main() {
 
-	conferenceName := "Go Conference"
-	const conferencetTickets = 50
-	var remainingTickets uint = 50
-	var bookings []string
+	// Variable initialization:
+	conferenceName := "Go Conference"            // A string variable for the conference name.
+	const conferencetTickets = 50                // A constant value indicating the total number of tickets available.
+	var remainingTickets uint = 50               // A uint variable indicating the number of tickets that are still unbooked.
+	var bookings []string                        // A slice to store the names of individuals who have booked tickets.
 
+	// Call the greetUsers function to display a welcome message and available tickets.
 	greetUsers(conferenceName, conferencetTickets, remainingTickets)
 
+	// Continuously loop to allow ticket booking until no tickets remain or 50 bookings are reached.
 	for remainingTickets > 0 && len(bookings) < 50 {
 
+		// Call the getUserInput function to get details from the user.
 		firstName, lastName, email, userTickets := getUserInput()
 
+		// Call validateUserInput to ensure the user has provided valid information.
 		isValidName, isValidEmail, isValidTicketNumber := validateUserInput(firstName, lastName, email, userTickets, remainingTickets)
 
+		// If all the provided details are valid:
 		if isValidName && isValidEmail && isValidTicketNumber {
+			// Update the remainingTickets and bookings list by booking the ticket.
 			remainingTickets, bookings = bookTicket(remainingTickets, userTickets, bookings, firstName, lastName, email, conferenceName)
 
+			// Extract the first names from the bookings and display them.
 			firstNames := getFirstNames(bookings)
 			fmt.Printf("The first names of bookings are: %v\n", firstNames)
 
+			// If no tickets remain, inform the user and break out of the loop.
 			if remainingTickets == 0 {
 				fmt.Println("Our conference is booked up. Sorry bout ya luck")
 				break
 			}
 		} else {
+			// In case the details are not valid, show relevant error messages:
+
+			// Name validation message.
 			if !isValidName {
 				fmt.Println("I know you're lying about your name. Try again buckaroo!")
 			}
+			// Email validation message.
 			if !isValidEmail {
 				fmt.Println("Aren't emails supposed to have an @ symbol? Where was yours? Try harder next time")
 			}
+			// Ticket number validation message.
 			if !isValidTicketNumber {
 				fmt.Printf("Now if we only have %v tickets remaining, how do you expect to receive %v? Didn't think about that did ya?\n", remainingTickets, userTickets)
 			}
@@ -1048,27 +1065,31 @@ func main() {
 	}
 }
 
+// Function to display a welcome message and the number of tickets available.
 func greetUsers(confName string, confTickets int, remainingTickets uint) {
-	fmt.Printf("Welcome to %v booking application\n", confName)
-	fmt.Println("We have a total of", confTickets, "tickets and", remainingTickets, "are still available")
-	fmt.Println("Get your tickets here to attend")
+	fmt.Printf("Welcome to %v booking application\n", confName)                  // Display a welcome message.
+	fmt.Println("We have a total of", confTickets, "tickets and", remainingTickets, "are still available") // Show total and available tickets.
+	fmt.Println("Get your tickets here to attend")                               // Prompt to purchase tickets.
 }
 
+// Function to extract the first names from the bookings list.
 func getFirstNames(bookings []string) []string {
-	firstNames := []string{}
-	for _, booking := range bookings {
-		var names = strings.Fields(booking)
-		firstNames = append(firstNames, names[0])
+	firstNames := []string{}             // Initialize a slice to hold the first names.
+	for _, booking := range bookings {   // Loop through each booking.
+		var names = strings.Fields(booking)   // Split the full name into words.
+		firstNames = append(firstNames, names[0]) // Add the first name (which is the first word) to the list.
 	}
-	return firstNames
+	return firstNames   // Return the list of first names.
 }
 
+// Function to gather user details and the number of tickets they want to book.
 func getUserInput() (string, string, string, uint) {
-	var firstName string
-	var lastName string
-	var email string
-	var userTickets uint
+	var firstName string      // Declare a variable for the first name.
+	var lastName string       // Declare a variable for the last name.
+	var email string          // Declare a variable for the email address.
+	var userTickets uint      // Declare a variable for the number of tickets.
 
+	// Prompt and capture each detail:
 	fmt.Println("Enter your first name: ")
 	fmt.Scan(&firstName)
 	fmt.Println("Enter your last name: ")
@@ -1078,69 +1099,97 @@ func getUserInput() (string, string, string, uint) {
 	fmt.Println("Enter number of tickets: ")
 	fmt.Scan(&userTickets)
 
-	return firstName, lastName, email, userTickets
+	return firstName, lastName, email, userTickets   // Return the captured details.
 }
 
+// Function to process the ticket booking and update the remaining tickets and bookings list.
 func bookTicket(remainingTickets uint, userTickets uint, bookings []string, firstName string, lastName string, email string, conferenceName string) (uint, []string) {
-	remainingTickets = remainingTickets - userTickets
-	bookings = append(bookings, firstName+" "+lastName)
+	remainingTickets = remainingTickets - userTickets  // Deduct the booked tickets from the total.
+	bookings = append(bookings, firstName+" "+lastName) // Add the user's name to the bookings list.
 
+	// Display a confirmation message to the user.
 	fmt.Println("Thank you", firstName, lastName, "for booking", userTickets, "tickets. You will receive a confirmation email at", email)
+	// Show the number of tickets still available.
 	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
 
-	return remainingTickets, bookings
+	return remainingTickets, bookings  // Return the updated number of tickets and bookings list.
 }
+
 ```
-#### hlper.go package:
+#### helper.go package:
 ``` go
-package main
+package main // This line declares the main package. It indicates that the code belongs to the main module of the Go program.
 
-import "strings"
+import "strings" // This line imports the strings package, which provides functions to manipulate and query strings.
 
+// Here's a function named `validateUserInput` which accepts five parameters and returns three boolean values.
 func validateUserInput(firstName string, lastName string, email string, userTickets uint, remainingTickets uint) (bool, bool, bool) {
-	var isValidName bool = len(firstName) > 2 && len(lastName) > 2
+
+	// Check if the length of both `firstName` and `lastName` is greater than 2.
+	// This is a simple check to ensure that the names aren't too short.
+	var isValidName bool = len(firstName) > 2 && len(lastName) > 2 
+
+	// Check if the provided `email` contains the "@" character, which is a very basic validation for email addresses.
 	var isValidEmail bool = strings.Contains(email, "@")
+
+	// Ensure that the `userTickets` is a positive number (greater than 0) and that the number of tickets the user wants 
+	// doesn't exceed the number of `remainingTickets`.
 	var isValidTicketNumber = userTickets > 0 && userTickets <= remainingTickets
-	return isValidName, isValidEmail, isValidTicketNumber
+
+	// The function returns the three boolean results to indicate the validity of the name, email, and ticket number, respectively.
+	return isValidName, isValidEmail, isValidTicketNumber 
 }
+
 ```
 ## Maps
 ``` go
-package main
+// Declares the main package which is the entry point for an executable Go program.
+package main 
 
+// Importing necessary packages.
 import (
-	"fmt"
-	"strconv"
-	"strings"
+	"fmt"      // Package for formatted I/O functions.
+	"strconv"  // String conversion package.
+	"strings"  // Package with string utility functions.
 )
 
-const conferenceTickets int = 50
+// Global constants and variables declaration.
+const conferenceTickets int = 50  // The maximum number of tickets available for the conference.
+var remainingTickets uint = 50    // The current number of tickets that haven't been booked.
+var conferenceName = "Go Conference"  // Name of the conference.
+var bookings = make([]map[string]string, 0)  // Slice to hold booking details. Each booking is a map with string keys and values.
 
-var remainingTickets uint = 50
-var conferenceName = "Go Conference"
-var bookings = make([]map[string]string, 0)
-
+// main function is the entry point of every Go program.
 func main() {
 
-	greetUsers()
+	greetUsers()  // Function call to display a welcome message to users.
 
+	// This loop runs indefinitely until broken out of.
 	for {
 
-		firstName, lastName, email, userTickets := getUserInput()
+		// Fetches user input details: first name, last name, email, and desired number of tickets.
+		firstName, lastName, email, userTickets := getUserInput() 
+		
+		// Validates the fetched user input and returns boolean values indicating the validity of each field.
 		isValidName, isValidEmail, isValidTicketNumber := validateUserInput(firstName, lastName, email, userTickets)
 
+		// If all user inputs are valid:
 		if isValidName && isValidEmail && isValidTicketNumber {
 
-			bookTicket(userTickets, firstName, lastName, email)
+			// Books the ticket for the user and updates global data.
+			bookTicket(userTickets, firstName, lastName, email) 
 
-			firstNames := printFirstNames()
-			fmt.Printf("The first names %v\n", firstNames)
+			// Fetches the first names of all attendees and stores them in the 'firstNames' slice.
+			firstNames := printFirstNames() 
+			// Prints the collected first names.
+			fmt.Printf("The first names %v\n", firstNames) 
 
-			if remainingTickets == 0 {
-				// end program
-				break
+			// If there are no tickets left, exit the loop.
+			if remainingTickets == 0 { 
+				break 
 			}
-		} else {
+		} else {  // If any of the user inputs are not valid:
+			// Display error messages based on which inputs were invalid.
 			if !isValidName {
 				fmt.Println("firt name or last name you entered is too short")
 			}
@@ -1150,26 +1199,32 @@ func main() {
 			if !isValidTicketNumber {
 				fmt.Println("number of tickets you entered is invalid")
 			}
-			continue
+			// Move to the next iteration of the loop without processing the rest of the loop body.
+			continue 
 		}
 	}
 }
 
+// Function to collect first names from the global 'bookings' slice.
 func printFirstNames() []string {
-	firstNames := []string{}
+	firstNames := []string{}  // Empty slice to store first names.
 
+	// Loop through each booking in the 'bookings' slice.
 	for _, booking := range bookings {
-		firstNames = append(firstNames, booking["firstName"])
+		// Fetch the 'firstName' field from each booking and append it to the 'firstNames' slice.
+		firstNames = append(firstNames, booking["firstName"]) 
 	}
-	return firstNames
+	return firstNames  // Return the slice containing first names.
 }
 
+// Function to get user input from the command line.
 func getUserInput() (string, string, string, uint) {
 	var firstName string
 	var lastName string
 	var email string
 	var userTickets uint
 
+	// Prompting and getting user input for each field.
 	fmt.Println("Enter Your First Name: ")
 	fmt.Scanln(&firstName)
 
@@ -1182,80 +1237,108 @@ func getUserInput() (string, string, string, uint) {
 	fmt.Println("Enter number of tickets: ")
 	fmt.Scanln(&userTickets)
 
-	return firstName, lastName, email, userTickets
+	return firstName, lastName, email, userTickets  // Returns the collected user input.
 }
 
+// Validates the user's input.
 func validateUserInput(firstName string, lastName string, email string, userTickets uint) (bool, bool, bool) {
-	isValidName := len(firstName) >= 2 && len(lastName) >= 2
-	isValidEmail := strings.Contains(email, "@")
-	isValidTicketNumber := userTickets > 0 && userTickets <= remainingTickets
-	return isValidName, isValidEmail, isValidTicketNumber
+	// Checks if the length of both first and last names is at least 2 characters.
+	isValidName := len(firstName) >= 2 && len(lastName) >= 2  
+	// Checks if the email string contains the "@" symbol.
+	isValidEmail := strings.Contains(email, "@")  
+	// Checks if the number of tickets requested is both positive and not greater than the number of available tickets.
+	isValidTicketNumber := userTickets > 0 && userTickets <= remainingTickets  
+	return isValidName, isValidEmail, isValidTicketNumber  // Returns the results of the validations.
 }
 
+// Welcomes the user and provides information about the available tickets.
 func greetUsers() {
+	// Displays the welcome message and information about ticket availability.
 	fmt.Printf("Welcome to %v booking application.\nWe have total of %v tickets and %v are still available.\nGet your tickets here to attend\n", conferenceName, conferenceTickets, remainingTickets)
 }
 
+// Books tickets for a user based on their input.
 func bookTicket(userTickets uint, firstName string, lastName string, email string) {
-	remainingTickets = remainingTickets - userTickets
+	// Reduces the number of remaining tickets by the number the user booked.
+	remainingTickets = remainingTickets - userTickets  
 
-	// create user map
+	// Creates a map to store the user's details.
 	var user = make(map[string]string)
 	user["firstName"] = firstName
 	user["lastName"] = lastName
 	user["email"] = email
-	user["numberOfTickets"] = strconv.FormatUint(uint64(userTickets), 10)
+	// Converts the 'userTickets' value from uint to a string and stores it in the map.
+	user["numberOfTickets"] = strconv.FormatUint(uint64(userTickets), 10)  
 
-	bookings = append(bookings, user)
+	// Appends the user map to the global 'bookings' slice.
+	bookings = append(bookings, user)  
+	
+	// Prints the updated list of bookings and confirms the user's booking.
 	fmt.Printf("List of Bookings: %v\n", bookings)
-
 	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
+	// Displays the updated number of remaining tickets.
 	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
 }
+
 ```
 ## Structs
 ``` go
-package main
+// Declares the main package, the entry point for an executable Go program.
+package main 
 
+// Importing necessary packages.
 import (
-	"fmt"
-	"strings"
+	"fmt"      // Provides functions for formatted I/O operations.
+	"strings"  // Provides functions to perform operations on strings.
 )
 
-const conferenceTickets int = 50
+// Declares a constant for the total number of conference tickets.
+const conferenceTickets int = 50 
 
-var remainingTickets uint = 50
-var conferenceName = "Go Conference"
-var bookings = make([]User, 0)
+// Declares global variables.
+var remainingTickets uint = 50         // The number of tickets left.
+var conferenceName = "Go Conference"   // The name of the conference.
+var bookings = make([]User, 0)         // A slice that will store booking details using the User type.
 
+// Defines a new type, User, which is a struct that will store booking details.
 type User struct {
 	firstName       string
 	lastName        string
 	email           string
-	numberOfTickets uint
+	numberOfTickets uint  // The number of tickets a user has booked.
 }
 
+// The entry function for the program.
 func main() {
 
+	// Calls the greetUsers function to display a welcome message.
 	greetUsers()
 
+	// Infinite loop to repeatedly prompt the user for input.
 	for {
 
-		firstName, lastName, email, userTickets := getUserInput()
+		// Gets the user input through the getUserInput function.
+		firstName, lastName, email, userTickets := getUserInput() 
+		
+		// Validates the user input through the validateUserInput function.
 		isValidName, isValidEmail, isValidTicketNumber := validateUserInput(firstName, lastName, email, userTickets)
 
+		// Checks if all the user inputs are valid.
 		if isValidName && isValidEmail && isValidTicketNumber {
 
+			// Processes the user's request to book tickets.
 			bookTicket(userTickets, firstName, lastName, email)
 
+			// Fetches and displays the first names of all users who have booked tickets.
 			firstNames := printFirstNames()
 			fmt.Printf("The first names %v\n", firstNames)
 
+			// Checks if there are no more tickets left. If so, exits the loop.
 			if remainingTickets == 0 {
-				// end program
 				break
 			}
-		} else {
+		} else {  // If any of the user's inputs are invalid:
+			// Error messages are displayed based on which inputs were invalid.
 			if !isValidName {
 				fmt.Println("firt name or last name you entered is too short")
 			}
@@ -1265,26 +1348,34 @@ func main() {
 			if !isValidTicketNumber {
 				fmt.Println("number of tickets you entered is invalid")
 			}
+			// Skips the rest of the loop iteration and starts the loop from the beginning.
 			continue
 		}
 	}
 }
 
+// Function that returns a slice containing the first names of all users in the 'bookings' slice.
 func printFirstNames() []string {
+	// Initializes an empty slice to store first names.
 	firstNames := []string{}
 
+	// Iterates over each booking in the 'bookings' slice.
 	for _, booking := range bookings {
+		// Appends the first name from each booking to the 'firstNames' slice.
 		firstNames = append(firstNames, booking.firstName)
 	}
-	return firstNames
+	return firstNames  // Returns the slice containing first names.
 }
 
+// Prompts the user for their details and desired number of tickets.
 func getUserInput() (string, string, string, uint) {
+	// Variables to hold user input.
 	var firstName string
 	var lastName string
 	var email string
 	var userTickets uint
 
+	// Prompts and collects user input for each detail.
 	fmt.Println("Enter Your First Name: ")
 	fmt.Scanln(&firstName)
 
@@ -1297,24 +1388,33 @@ func getUserInput() (string, string, string, uint) {
 	fmt.Println("Enter number of tickets: ")
 	fmt.Scanln(&userTickets)
 
-	return firstName, lastName, email, userTickets
+	// Returns the collected user input.
+	return firstName, lastName, email, userTickets  
 }
 
+// Validates the provided user input and returns results of the validations.
 func validateUserInput(firstName string, lastName string, email string, userTickets uint) (bool, bool, bool) {
-	isValidName := len(firstName) >= 2 && len(lastName) >= 2
-	isValidEmail := strings.Contains(email, "@")
-	isValidTicketNumber := userTickets > 0 && userTickets <= remainingTickets
-	return isValidName, isValidEmail, isValidTicketNumber
+	// Checks if both the first name and last name are at least 2 characters long.
+	isValidName := len(firstName) >= 2 && len(lastName) >= 2  
+	// Checks if the provided email contains an "@" character.
+	isValidEmail := strings.Contains(email, "@")  
+	// Checks if the requested number of tickets is both greater than 0 and doesn't exceed available tickets.
+	isValidTicketNumber := userTickets > 0 && userTickets <= remainingTickets  
+
+	return isValidName, isValidEmail, isValidTicketNumber  // Returns the results of the validations.
 }
 
+// Displays a welcome message to users with details about ticket availability.
 func greetUsers() {
 	fmt.Printf("Welcome to %v booking application.\nWe have total of %v tickets and %v are still available.\nGet your tickets here to attend\n", conferenceName, conferenceTickets, remainingTickets)
 }
 
+// Processes the booking based on valid user input.
 func bookTicket(userTickets uint, firstName string, lastName string, email string) {
-	remainingTickets = remainingTickets - userTickets
+	// Deducts the number of booked tickets from the total remaining tickets.
+	remainingTickets = remainingTickets - userTickets  
 
-	// create user map
+	// Initializes a new User struct with the provided details.
 	var user = User{
 		firstName:       firstName,
 		lastName:        lastName,
@@ -1322,29 +1422,38 @@ func bookTicket(userTickets uint, firstName string, lastName string, email strin
 		numberOfTickets: userTickets,
 	}
 
-	bookings = append(bookings, user)
+	// Appends the newly created User struct to the global 'bookings' slice.
+	bookings = append(bookings, user)  
 
+	// Confirms the user's booking and provides them with a summary.
 	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
-	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
+	// Updates the user on the number of remaining tickets.
+	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)  
 }
+
 ```
 ## ConCurrency
 ``` go
+// Declares the main package which is the entry point for a Go application.
 package main
 
+// Importing necessary packages.
 import (
-	"fmt"
-	"strings"
-	"sync"
-	"time"
+	"fmt"      // Provides I/O functions.
+	"strings"  // Provides string manipulation functions.
+	"sync"     // Provides synchronization primitives like WaitGroup.
+	"time"     // Provides time-related functions.
 )
 
+// Declares a constant indicating the total number of tickets for the conference.
 const conferenceTickets int = 50
 
+// Declares global variables.
 var conferenceName = "Go Conference"
 var remainingTickets uint = 50
-var bookings = make([]UserData, 0)
+var bookings = make([]UserData, 0)   // A slice storing bookings of type UserData.
 
+// Defines the structure for a user's data.
 type UserData struct {
 	firstName       string
 	lastName        string
@@ -1352,32 +1461,45 @@ type UserData struct {
 	numberOfTickets uint
 }
 
+// Declares a WaitGroup to handle synchronization for goroutines.
 var wg = sync.WaitGroup{}
 
+// The main function; the starting point of the program.
 func main() {
 
+	// Calls the greetUsers function to display introductory information.
 	greetUsers()
 
+	// Infinite loop to repeatedly prompt the user for input.
 	for {
+		// Gets the user input and stores in corresponding variables.
 		firstName, lastName, email, userTickets := getUserInput()
+		// Validates the provided user details and tickets quantity.
 		isValidName, isValidEmail, isValidTicketNumber := validateUserInput(firstName, lastName, email, userTickets)
 
+		// Checks if all validations passed.
 		if isValidName && isValidEmail && isValidTicketNumber {
-
+			// Books the ticket for the user.
 			bookTicket(userTickets, firstName, lastName, email)
 
+			// Increment the counter in the WaitGroup by 1.
 			wg.Add(1)
+			// Start a goroutine to simulate sending a ticket to the user. This operates asynchronously.
 			go sendTicket(userTickets, firstName, lastName, email)
 
+			// Retrieves the list of first names from the bookings.
 			firstNames := getFirstNames()
+			// Prints the first names.
 			fmt.Printf("The first names of bookings are: %v\n", firstNames)
 
+			// Checks if all tickets have been sold out.
 			if remainingTickets == 0 {
-				// end program
+				// Ends the program after notifying the user.
 				fmt.Println("Our conference is booked out. Come back next year.")
 				break
 			}
-		} else {
+		} else { 
+			// If any validations fail, informs the user about the specific issues.
 			if !isValidName {
 				fmt.Println("first name or last name you entered is too short")
 			}
@@ -1389,22 +1511,26 @@ func main() {
 			}
 		}
 	}
+	// Waits for all goroutines to complete before proceeding.
 	wg.Wait()
 }
 
+// Function to greet the user and provide information on the conference and tickets.
 func greetUsers() {
 	fmt.Printf("Welcome to %v booking application\n", conferenceName)
 	fmt.Printf("We have total of %v tickets and %v are still available.\n", conferenceTickets, remainingTickets)
 	fmt.Println("Get your tickets here to attend")
 }
 
+// Validates the provided user details.
 func validateUserInput(firstName string, lastName string, email string, userTickets uint) (bool, bool, bool) {
-	var isValidName bool = len(firstName) > 2 && len(lastName) > 2
-	var isValidEmail bool = strings.Contains(email, "@")
-	var isValidTicketNumber = userTickets > 0 && userTickets <= remainingTickets
+	var isValidName bool = len(firstName) > 2 && len(lastName) > 2        // Validates the lengths of first and last names.
+	var isValidEmail bool = strings.Contains(email, "@")                   // Validates the email format.
+	var isValidTicketNumber = userTickets > 0 && userTickets <= remainingTickets  // Validates the ticket quantity.
 	return isValidName, isValidEmail, isValidTicketNumber
 }
 
+// Fetches and returns first names from the bookings slice.
 func getFirstNames() []string {
 	firstNames := []string{}
 	for _, booking := range bookings {
@@ -1413,12 +1539,14 @@ func getFirstNames() []string {
 	return firstNames
 }
 
+// Prompts the user for their details and number of tickets.
 func getUserInput() (string, string, string, uint) {
 	var firstName string
 	var lastName string
 	var email string
 	var userTickets uint
 
+	// Getting user input.
 	fmt.Println("Enter your first name: ")
 	fmt.Scan(&firstName)
 
@@ -1431,12 +1559,15 @@ func getUserInput() (string, string, string, uint) {
 	fmt.Println("Enter number of tickets: ")
 	fmt.Scan(&userTickets)
 
-	return firstName, lastName, email, userTickets
+	return firstName, lastName, email, userTickets  // Returns the user's input.
 }
 
+// Books a ticket based on the user's input and updates the global bookings and remainingTickets variables.
 func bookTicket(userTickets uint, firstName string, lastName string, email string) {
+	// Deducts the number of booked tickets from the available tickets.
 	remainingTickets = remainingTickets - userTickets
 
+	// Constructs a UserData struct with the user's details.
 	var userData = UserData{
 		firstName:       firstName,
 		lastName:        lastName,
@@ -1444,19 +1575,23 @@ func bookTicket(userTickets uint, firstName string, lastName string, email strin
 		numberOfTickets: userTickets,
 	}
 
+	// Adds the new booking to the global bookings slice.
 	bookings = append(bookings, userData)
-	fmt.Printf("List of bookings is %v\n", bookings)
 
+	// Notifies the user of their successful booking.
 	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
 	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
 }
 
+// Simulates the process of sending a ticket to the user.
 func sendTicket(userTickets uint, firstName string, lastName string, email string) {
-	time.Sleep(30 * time.Second)
+	time.Sleep(30 * time.Second)  // Simulates a delay before sending the ticket.
 	var ticket = fmt.Sprintf("%v tickets for %v %v", userTickets, firstName, lastName)
+	// Notifies that the ticket is being sent.
 	fmt.Println("#################")
 	fmt.Printf("Sending ticket:\n %v \nto email address %v\n", ticket, email)
 	fmt.Println("#################")
-	wg.Done()
+	wg.Done()  // Decrement the counter in the WaitGroup.
 }
+
 ```
