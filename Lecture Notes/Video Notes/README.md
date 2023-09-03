@@ -1,22 +1,22 @@
 # Video Notes for GoLang
 
 ## Contents
-#### Example One
-#### Variables and Constants
-#### Data Types
-#### Getting User Input Data
-#### Book Ticket Logic
-#### Arrays and Slices
-#### Loops
-#### If Statement
-#### If Else Statement
-#### For Loops Extended
-#### Validating User Input
-#### Functions
-#### Creating Packages
-#### Maps
-#### Structs
-#### Concurrency
+#### 1. Example One
+#### 2. Variables and Constants
+#### 3. Data Types
+#### 4. Getting User Input Data
+#### 5. Book Ticket Logic
+#### 6. Arrays and Slices
+#### 7. Loops
+#### 8. If Statement
+#### 9. If Else Statement
+#### 10. For Loops Extended
+#### 11. Validating User Input
+#### 12. Functions
+#### 13. Creating Packages
+#### 14. Maps
+#### 15. Structs
+#### 16. Concurrency
 
 ## Example One
 ``` go
