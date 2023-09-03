@@ -361,7 +361,7 @@ if remainingTickets == 0 {
 ## If Else Statment
 ``` go
 // ------------------------------------------------------------------------------------------------ If Else Statement
-Or you can do something like this for an is else statement:
+// Or you can do something like this for an is else statement:
 		var firstName string
 		var lastName string
 		var email string
