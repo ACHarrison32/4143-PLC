@@ -117,35 +117,57 @@ func main() {
 ```
 ## Getting User Input Data
 ``` go
+// The code belongs to the main package, which means this will create an executable program.
 package main
 
+// Here, the "fmt" package is imported, which provides functions for formatted I/O operations.
 import "fmt"
 
+// This is the main function, the entry point of the Go program.
 func main() {
+    // This is a shorthand declaration and assignment of the value "Go Conference" 
+    // to the variable 'conferenceName'.
+    conferenceName := "Go Conference"
+    
+    // This line declares a constant named 'conferencetTickets' and assigns it a value of 50.
+    // Constants in Go, once set, cannot be changed.
+    const conferencetTickets = 50
+    
+    // This line declares a variable named 'remainingTickets' and initializes it with a value of 50.
+    var remainingTickets = 50
 
-	conferenceName := "Go Conference"
-	const conferencetTickets = 50
-	var remainingTickets = 50
+    // Using the Printf function from the fmt package, this line prints the types 
+    // (%T) of the 'conferencetTickets', 'remainingTickets', and 'conferenceName' variables.
+    fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n", conferencetTickets, remainingTickets, conferenceName)
 
-	fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n",
- conferencetTickets, remainingTickets, conferenceName)
+    // This line prints a welcome message followed by the conference name.
+    fmt.Println("Welcome to", conferenceName, "booking applicaiton")
+    
+    // This line prints out how many total tickets there are 
+    // and how many of those tickets are still available.
+    fmt.Println("We have a total of", conferencetTickets, "tickets and", remainingTickets, "are still available")
+    
+    // This line encourages users to purchase tickets.
+    fmt.Println("Get your tickets here to attend")
 
-	fmt.Println("Welcome to", conferenceName, "booking applicaiton")
-	// fmt.Printf("Welcome to" %v "booking applicaiton\n", conferenceName)
-	fmt.Println("We have a total of", conferencetTickets, "tickets and", remainingTickets,
- "are still available")
-	// fmt.Printf("We have a total of" %v "tickets and" %v "are still available\n",
-conferenceTickets, remainingTickets)
-	fmt.Println("Get your tickets here to attend")
+    // This declares a string variable 'userName' but doesn't assign it any value yet.
+    var userName string
+    
+    // This declares an integer variable 'userTickets' but doesn't assign it any value yet.
+    var userTickets int
+    
+    // This line prompts the user to enter their first name.
+    fmt.Println("Enter your first name: ")
+    
+    // The Scan function reads the user's input (presumably their name) from the console 
+    // and assigns it to the 'userName' variable.
+    fmt.Scan(&userName)
 
-	var userName string
-	var userTickets int
-	// ask user for their name
-	fmt.Println("Enter your first name: ")
-	fmt.Scan(&userName)
-
-	userTickets = 2
-	fmt.Println("User", userName, "booked", userTickets, "tickets.")
+    // Assigns a value of 2 to the 'userTickets' variable.
+    userTickets = 2
+    
+    // Prints out a message saying the user (by their provided name) booked 2 tickets.
+    fmt.Println("User", userName, "booked", userTickets, "tickets.")
 }
 ```
 ## Book Ticket Logic
