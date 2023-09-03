@@ -61,35 +61,58 @@ func main() {
 #### You need to tell Go Compiler, the data type when declaring the variable
 #### Type Inference: BUT, Go can infer the type when you assign a value
 ``` go
+// The code belongs to the main package, which means this will produce an executable program.
 package main
 
+// The "fmt" package is imported, which provides functions for formatted I/O operations.
 import "fmt"
 
+// This is the main function, the entry point of the Go program.
 func main() {
 
-	conferenceName := "Go Conference"
-	const conferencetTickets = 50
-	var remainingTickets = 50
+    // Declare and initialize a variable named 'conferenceName' with the value "Go Conference".
+    // ":=" is a shorthand for declaration and assignment in Go.
+    conferenceName := "Go Conference"
+    
+    // Declare a constant named 'conferencetTickets' with the value 50.
+    // Constants cannot be changed after they're initialized.
+    const conferencetTickets = 50
+    
+    // Declare and initialize a variable named 'remainingTickets' with the value 50.
+    var remainingTickets = 50
 
-	fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n",
- conferencetTickets, remainingTickets, conferenceName)
+    // Print the types of the variables 'conferencetTickets', 'remainingTickets', and 'conferenceName'.
+    fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n", conferencetTickets, remainingTickets, conferenceName)
 
-	fmt.Println("Welcome to", conferenceName, "booking applicaiton")
-	// fmt.Printf("Welcome to" %v "booking applicaiton\n", conferenceName)
-	fmt.Println("We have a total of", conferencetTickets, "tickets and", remainingTickets,
- "are still available")
-	// fmt.Printf("We have a total of" %v "tickets and" %v "are still available\n",
-conferenceTickets, remainingTickets)
-	fmt.Println("Get your tickets here to attend")
+    // Print a welcome message followed by the conference name.
+    fmt.Println("Welcome to", conferenceName, "booking applicaiton")
+    
+    // This line is commented out. It's an alternative way of printing the welcome message
+    // fmt.Printf("Welcome to %v booking application\n", conferenceName)
+    
+    // Print the total number of tickets and how many are still available.
+    fmt.Println("We have a total of", conferencetTickets, "tickets and", remainingTickets, "are still available")
+    
+    // This line is commented out. It's an alternative way of printing the ticket details
+    // fmt.Printf("We have a total of %v tickets and %v are still available\n", conferencetTickets, remainingTickets)
+    
+    // Print a message prompting users to get their tickets.
+    fmt.Println("Get your tickets here to attend")
 
-	var userName string
-	var userTickets int
-	// ask user for their name
-	fmt.Println("Enter your first name: ")
-	fmt.Scan(&userName)
+    // Declare a variable 'userName' of type string.
+    var userName string
+    // Declare a variable 'userTickets' of type int.
+    var userTickets int
+    
+    // Prompt the user to enter their first name.
+    fmt.Println("Enter your first name: ")
+    // Scan for the user's input and store it in the 'userName' variable.
+    fmt.Scan(&userName)
 
-	userTickets = 2
-	fmt.Println("User", userName, "booked", userTickets, "tickets.")
+    // Assign the value 2 to the 'userTickets' variable.
+    userTickets = 2
+    // Print the user's name and the number of tickets they booked.
+    fmt.Println("User", userName, "booked", userTickets, "tickets.")
 }
 ```
 ## Getting User Input Data
