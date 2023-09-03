@@ -2,13 +2,23 @@
 
 ## Example One
 ``` go
+// This declares that the code belongs to the main package.
+// In Go, the main package is the default name for a package that makes 
+// an executable program, as opposed to a shared library.
 package main
 
+// Here we're importing the "fmt" package, which provides 
+// functions for formatted I/O operations (like printing to the console).
 import "fmt"
 
+// The main function is the entry point of the program.
+// Every executable Go program must have this function.
 func main() {
-	fmt.Println("Hello World")
+    // fmt.Println is a function from the "fmt" package.
+    // It prints the string "Hello World" followed by a newline to the console.
+    fmt.Println("Hello World")
 }
+
 ```
 ## Variables and Constants
 ``` go
