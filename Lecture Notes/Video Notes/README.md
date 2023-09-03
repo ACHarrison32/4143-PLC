@@ -244,60 +244,81 @@ func main() {
 #### Append adds the elements at the end of the slice
 #### Append grows the slice if a greater capacity is needed and returns the updated slice value
 ``` go
+// This code belongs to the main package, which is the default package for Go applications.
 package main
 
+// Importing the "fmt" package for formatted I/O operations like printing to the console.
 import "fmt"
 
+// The main function, where the execution of the program starts.
 func main() {
 
-	conferenceName := "Go Conference"
-	const conferencetTickets = 50
-	var remainingTickets uint = 50
+    // Shorthand declaration and assignment of the string "Go Conference" to the variable 'conferenceName'.
+    conferenceName := "Go Conference"
+    
+    // Declaring a constant named 'conferencetTickets' with a value of 50. It cannot be changed during execution.
+    const conferencetTickets = 50
+    
+    // Declaring and initializing a variable 'remainingTickets' with a value of 50.
+    // The type of this variable is 'uint', which stands for unsigned integer.
+    var remainingTickets uint = 50
 
-	fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n",
+    // Using the Printf function, this line prints the types of the variables 'conferencetTickets',
+    // 'remainingTickets', and 'conferenceName'.
+    fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n",
 		conferencetTickets, remainingTickets, conferenceName)
 
-	fmt.Println("Welcome to", conferenceName, "booking applicaiton")
-	// fmt.Printf("Welcome to" %v "booking applicaiton\n", conferenceName)
-	fmt.Println("We have a total of", conferencetTickets, "tickets and", remainingTickets,
+    // Printing a welcome message to the console.
+    fmt.Println("Welcome to", conferenceName, "booking applicaiton")
+    
+    // Printing out the total number of tickets and the number of tickets that are still available.
+    fmt.Println("We have a total of", conferencetTickets, "tickets and", remainingTickets,
 		"are still available")
-	// fmt.Printf("We have a total of" %v "tickets and" %v "are still available\n",
-	// conferenceTickets, remainingTickets)
-	fmt.Println("Get your tickets here to attend")
+    
+    // Printing information to encourage users to get their tickets.
+    fmt.Println("Get your tickets here to attend")
 
-	var bookings []string
-	// bookings := []string{} Same as the line above
+    // Declaring a slice named 'bookings' to store booked names. Slices are flexible and can grow in size.
+    var bookings []string
 
-	var firstName string
-	var lastName string
-	var email string
-	var userTickets uint
-	// ask user for their name
-	fmt.Println("Enter your first name: ")
-	fmt.Scan(&firstName)
-	fmt.Println("Enter your last name: ")
-	fmt.Scan(&lastName)
-	fmt.Println("Enter your email address: ")
-	fmt.Scan(&email)
-	fmt.Println("Enter number of tickets: ")
-	fmt.Scan(&userTickets)
+    // Alternate way to declare and initialize an empty slice. Commented out for reference.
+    // bookings := []string{}
+    
+    // Declaring string variables to capture user input.
+    var firstName, lastName, email string
+    // Declaring an unsigned integer variable to capture the number of tickets a user wants to book.
+    var userTickets uint
 
-	remainingTickets = remainingTickets - userTickets
-	bookings = append(bookings, firstName+" "+lastName)
+    // Prompting the user for input and reading it into the relevant variables.
+    fmt.Println("Enter your first name: ")
+    fmt.Scan(&firstName)
+    fmt.Println("Enter your last name: ")
+    fmt.Scan(&lastName)
+    fmt.Println("Enter your email address: ")
+    fmt.Scan(&email)
+    fmt.Println("Enter number of tickets: ")
+    fmt.Scan(&userTickets)
 
-	//fmt.Printf("The whole array: %v\n", bookings)
-	//fmt.Printf("The whole slice: %v\n", bookings)
-	//fmt.Printf("The first value: %v\n", bookings[0])
-	//fmt.Printf("The array type: %T\n", bookings)
-	//fmt.Printf("The slice type: %T\n", bookings)
-	//fmt.Printf("The array length: %v\n", len(bookings))
-	//fmt.Printf("The slice length: %v\n", len(bookings))
+    // Updating the 'remainingTickets' variable based on the number of tickets booked by the user.
+    remainingTickets = remainingTickets - userTickets
+    // Appending the user's name to the 'bookings' slice.
+    bookings = append(bookings, firstName+" "+lastName)
 
-	fmt.Println("Thank you", firstName, lastName, "for booking", userTickets,
-		"tickets. You will reviece a confirmation email at", email)
-	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
+    // Various commented-out lines that demonstrate how to print the contents, type, and length of the bookings slice.
+    // fmt.Printf("The whole slice: %v\n", bookings)
+    // fmt.Printf("The first value: %v\n", bookings[0])
+    // fmt.Printf("The slice type: %T\n", bookings)
+    // fmt.Printf("The slice length: %v\n", len(bookings))
 
-	fmt.Printf("These are all our bookings: %v\n", bookings)
+    // Printing a thank you message and other details about the user's booking.
+    fmt.Println("Thank you", firstName, lastName, "for booking", userTickets,
+		"tickets. You will receive a confirmation email at", email)
+    
+    // Printing the number of tickets remaining after the user's booking.
+    fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
+
+    // Printing all the names in the 'bookings' slice, which represent the users who've booked tickets.
+    fmt.Printf("These are all our bookings: %v\n", bookings)
 }
 ```
 ## Loops
