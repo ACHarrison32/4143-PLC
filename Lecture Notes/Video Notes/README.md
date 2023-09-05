@@ -1,24 +1,24 @@
 # Video Notes for GoLang
 ### These notes are all the same program. However each example builds off the previous one.
 ## Contents
-#### 1. [Example One](#exampleone)
-#### 2. Variables and Constants
-#### 3. Data Types
-#### 4. Getting User Input Data
-#### 5. Book Ticket Logic
-#### 6. Arrays and Slices
-#### 7. Loops
-#### 8. If Statement
-#### 9. If Else Statement
-#### 10. For Loops Extended
-#### 11. Validating User Input
-#### 12. Functions
-#### 13. Creating Packages
-#### 14. Maps
-#### 15. Structs
-#### 16. Concurrency
+- [Example One](#example-one)
+- [Variables and Constants](#variables-and-constants)
+- [Data Types](#data-types)
+- [Getting User Input Data](#getting-user-input-data)
+- [Book Ticket Logic](#book-ticket-logic)
+- [Arrays and Slices](#arrays-and-slices)
+- [Loops](#loops)
+- [If Statement](#if-statement)
+- [If Else Statement](#if-else-statement)
+- [For Loops Extended](#for-loops-extended)
+- [Validating User Input](#validating-user-input)
+- [Functions](#functions)
+- [Creating Packages](#creating-packages)
+- [Maps](#maps)
+- [Structs](#structs)
+- [Concurrency](#concurrency)
 
-##exampleone
+
 ## Example One
 ``` go
 // This declares that the code belongs to the main package.
