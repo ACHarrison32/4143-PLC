@@ -10,5 +10,5 @@
 |   #   |              File Link             |                                        Description                                         |
 | :---: | ---------------------------------- | ------------------------------------------------------------------------------------------ |
 |   1   |        [main.go](./main.go)        |                            Main file for running the Go program                            |
-|   2   |      [mascot.go](./mascot.go)      |                   Package that runs a function declaring the best mascot                   |
-|   3   | [mascot_test.go](./mascot_test.go) | Package that runs a testing function. Testing to see if the mascot in mascot.go is correct |
+|   2   |      [mascot.go](./mascot/mascot.go)      |                   Package that runs a function declaring the best mascot                   |
+|   3   | [mascot_test.go](./mascot/mascot_test.go) | Package that runs a testing function. Testing to see if the mascot in mascot.go is correct |
