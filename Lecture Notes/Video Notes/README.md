@@ -1,7 +1,7 @@
 # Video Notes for GoLang
 ### These notes are all the same program. However each example builds off the previous one.
 ## Contents
-#### 1. Example One
+#### 1. [Example One](#Example One)
 #### 2. Variables and Constants
 #### 3. Data Types
 #### 4. Getting User Input Data
