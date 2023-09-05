@@ -1,7 +1,7 @@
 # Video Notes for GoLang
 ### These notes are all the same program. However each example builds off the previous one.
 ## Contents
-#### 1. [Example One](#Example One)
+#### 1. [Example One](#exampleone)
 #### 2. Variables and Constants
 #### 3. Data Types
 #### 4. Getting User Input Data
@@ -18,6 +18,7 @@
 #### 15. Structs
 #### 16. Concurrency
 
+##exampleone
 ## Example One
 ``` go
 // This declares that the code belongs to the main package.
