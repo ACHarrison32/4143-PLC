@@ -151,30 +151,30 @@
 
 // ======================================================
 
-package main
+// package main
 
-import "fmt"
+// import "fmt"
 
-type Person struct {
-	Name string
-}
+// type Person struct {
+// 	Name string
+// }
 
-func (p Person) greet() string {
-	return fmt.Sprintf("Hello, my name is %s.", p.Name)
-}
+// func (p Person) greet() string {
+// 	return fmt.Sprintf("Hello, my name is %s.", p.Name)
+// }
 
-type Calculator struct{}
+// type Calculator struct{}
 
-func (c Calculator) square(number int) int {
-	return number * number
-}
+// func (c Calculator) square(number int) int {
+// 	return number * number
+// }
 
-func main() {
-	person := Person{Name: "Andrew"}
-	fmt.Println(person.greet())
+// func main() {
+// 	person := Person{Name: "Andrew"}
+// 	fmt.Println(person.greet())
 
-	calculator := Calculator{}
-	num := 12
-	square := calculator.square(num)
-	fmt.Printf("The square of %d is %d\n", num, square)
-}
+// 	calculator := Calculator{}
+// 	num := 12
+// 	square := calculator.square(num)
+// 	fmt.Printf("The square of %d is %d\n", num, square)
+// }
