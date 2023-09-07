@@ -1,4 +1,4 @@
-##  Assignments Folder
+# Notes Folder
 
 |   #   | Name | 
 | :---: | --------------- | 
