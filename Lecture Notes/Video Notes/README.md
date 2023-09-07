@@ -324,10 +324,13 @@ func main() {
     bookings = append(bookings, firstName+" "+lastName)
 
     // Various commented-out lines that demonstrate how to print the contents, type, and length of the bookings slice.
-    // fmt.Printf("The whole slice: %v\n", bookings)
-    // fmt.Printf("The first value: %v\n", bookings[0])
-    // fmt.Printf("The slice type: %T\n", bookings)
-    // fmt.Printf("The slice length: %v\n", len(bookings))
+    //fmt.Printf("The whole array: %v\n", bookings)
+    //fmt.Printf("The whole slice: %v\n", bookings)
+    //fmt.Printf("The first value: %v\n", bookings[0])
+    //fmt.Printf("The array type: %T\n", bookings)
+    //fmt.Printf("The slice type: %T\n", bookings)
+    //fmt.Printf("The array length: %v\n", len(bookings))
+    //fmt.Printf("The slice length: %v\n", len(bookings))
 
     // Printing a thank you message and other details about the user's booking.
     fmt.Println("Thank you", firstName, lastName, "for booking", userTickets,
@@ -505,14 +508,6 @@ func main() {
 
 		// Add the user's full name to the bookings slice.
 		bookings = append(bookings, firstName+" "+lastName)
-
-		//fmt.Printf("The whole array: %v\n", bookings)
-		//fmt.Printf("The whole slice: %v\n", bookings)
-		//fmt.Printf("The first value: %v\n", bookings[0])
-		//fmt.Printf("The array type: %T\n", bookings)
-		//fmt.Printf("The slice type: %T\n", bookings)
-		//fmt.Printf("The array length: %v\n", len(bookings))
-		//fmt.Printf("The slice length: %v\n", len(bookings))
 		
 		// Print a thank-you message to the user and inform them of their booking details.
 		fmt.Println("Thank you", firstName, lastName, "for booking", userTickets,
