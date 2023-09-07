@@ -51,14 +51,14 @@ import "fmt"
 func main() {
 
     // Declare and initialize a variable named 'conferenceName' with the value "Go Conference".
-    var conferenceName = "Go Conference"
+    var conferenceName string = "Go Conference"
     
     // Declare a constant named 'conferencetTickets' with the value 50.
     // Constants cannot be changed after they are initialized.
-    const conferencetTickets = 50
+    const conferencetTickets int = 50
     
     // Declare and initialize a variable named 'remainingTickets' with the value 50.
-    var remainingTickets = 50
+    var remainingTickets int = 50
 
     // Print a welcome message followed by the conference name.
     fmt.Println("Welcome to", conferenceName, "booking applicaiton")
