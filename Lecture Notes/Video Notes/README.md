@@ -58,7 +58,7 @@ func main() {
     const conferencetTickets int = 50
     
     // Declare and initialize a variable named 'remainingTickets' with the value 50.
-    var remainingTickets int = 50
+    var remainingTickets uint = 50
 
     // Print a welcome message followed by the conference name.
     fmt.Println("Welcome to", conferenceName, "booking applicaiton")
