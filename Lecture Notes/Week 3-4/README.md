@@ -1,5 +1,17 @@
 ## Youtube Videos for This Week
-| Date | Video Link | Notes |
-| ---- | ---------- | ----- |
-| 09/11/2023 | [Class 05, 10, and 12](https://www.youtube.com/watch?v=pHl9r3B2DFI&list=PLoILbKo9rG3skRCj37Kn5Zj803hhiuRK6&index=11) | [Arrays, Maps, Slices, and Structs]() |
-| 09/13/2023 | [
+| Date | Video Link | Notes | Completed |
+| ---- | ---------- | ----- | --------- |
+| 09/11/2023 | [Class 05](https://www.youtube.com/watch?v=pHl9r3B2DFI&list=PLoILbKo9rG3skRCj37Kn5Zj803hhiuRK6&index=11) | [Arrays, Maps, and Slices](https://github.com/ACHarrison32/4143-PLC/blob/main/Lecture%20Notes/Week%203-4/Arrays_Slices_Maps.go) | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/index.png" width="10">|
+| 09/11/2023 | [Class 10](https://www.youtube.com/watch?v=pHl9r3B2DFI&list=PLoILbKo9rG3skRCj37Kn5Zj803hhiuRK6&index=11) | [Slices in Detail]() | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/images.png" width="10">|
+| 09/11/2023 | [Class 12](https://www.youtube.com/watch?v=0m6iFd9N_CY&list=PLoILbKo9rG3skRCj37Kn5Zj803hhiuRK6&index=13) | [Structs]() | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/images.png" width="10">|
+| 09/13/2023 | [Pointers](https://www.youtube.com/watch?v=mqH21m0MsWk) | [Pointers]() | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/images.png" width="10">|
+| 09/13/2023 | [Memory Management](https://www.youtube.com/watch?v=G1SP9uDJD0g&t=29s) | [Memory Mangement]() | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/images.png" width="10">|
+| 09/15/2023 | [Class 07](https://www.youtube.com/watch?v=dqEtGT-dxoY&list=PLoILbKo9rG3skRCj37Kn5Zj803hhiuRK6&index=8) | [File I/O Ops]() | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/images.png" width="10">|
+| 09/18/2023 | [Class 04](https://www.youtube.com/watch?v=nxWqANttAdA&list=PLoILbKo9rG3skRCj37Kn5Zj803hhiuRK6&index=5) | [Strings and Characters]() | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/images.png" width="10">|
+| 09/20/2023 | [Class 32](https://www.youtube.com/watch?v=oIxXp0OgK_0&list=PLoILbKo9rG3skRCj37Kn5Zj803hhiuRK6&index=32) | [Error Handling]() | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/images.png" width="10">|
+| 09/22/2023 | [Class 22](https://www.youtube.com/watch?v=A3R-4ZYBqvE&list=PLoILbKo9rG3skRCj37Kn5Zj803hhiuRK6&index=22) | [Concurrency]() | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/images.png" width="10">|
+| 09/24/2023 | [Class 27](https://www.youtube.com/watch?v=SPD7TykYy5w&list=PLoILbKo9rG3skRCj37Kn5Zj803hhiuRK6&index=27) | [Concurrent File]() | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/images.png" width="10">|
+| 09/25/2023 | [Class 30](https://www.youtube.com/watch?v=K1hwpNnCJgY&list=PLoILbKo9rG3skRCj37Kn5Zj803hhiuRK6&index=30) | [Concurrency Gotchas]() | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/images.png" width="10">|
+| 09/27/2023 | [Class 23](https://www.youtube.com/watch?v=zJd7Dvg3XCk&list=PLoILbKo9rG3skRCj37Kn5Zj803hhiuRK6&index=23) | [Goroutines and Channels]() | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/images.png" width="10">|
+| 09/27/2023 | [Class 26](https://www.youtube.com/watch?v=fCkxKGd6CVQ&list=PLoILbKo9rG3skRCj37Kn5Zj803hhiuRK6&index=26) | [Channels in Detail]() | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/images.png" width="10">|
+| 09/29/2023 | [Class 28](https://www.youtube.com/watch?v=DtXNSE3Yejg&list=PLoILbKo9rG3skRCj37Kn5Zj803hhiuRK6&index=28) | [Synchronization]() | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/images.png" width="10">|
