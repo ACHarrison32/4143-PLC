@@ -6,10 +6,10 @@ var b [3]int{0, 0, 0}
 var c [...]{0, 0, 0}  			//Sized by initializer
 
 var d [3]int
-d = b							//Elements copied
+d = b					//Elements copied
 
 var m [...]int{1, 2, 3, 4}
-c = m							//TYPE MISMATCH
+c = m					//TYPE MISMATCH
 
 Arrays are typed by sized, which is fixed at compile time
 Arrays are passed by value, thus elements are copied.
@@ -20,16 +20,16 @@ Arrays are passed by value, thus elements are copied.
 
 /*
 
-var a []int							//nil, no storage
+var a []int						//nil, no storage
 var b = []int{1, 2}					//initialized
 
-a = append(a, 1)        			//append to nil OK
+a = append(a, 1)        				//append to nil OK
 b = append(b, 3)					//[]int{1, 2, 3}
 
-a = b 								//overwrites a
+a = b 							//overwrites a
 
-d := make([]int, 5) 				//[]int{0, 0, 0, 0, 0}
-e := a								//same storage (alias)
+d := make([]int, 5) 					//[]int{0, 0, 0, 0, 0}
+e := a							//same storage (alias)
 
 e[0] == b[0]						//true
 
@@ -64,12 +64,12 @@ func main() {
 
 	t := []byte("string")
 
-	fmt.Println(len(t), t)           //What is t in this length
-	fmt.Println(t[2])                //What is the third byte
-	fmt.Println(t[:2])               //Two elements after third
-	fmt.Println(t[2:])               //Everything after two
-	fmt.Println(t[3:5])              //Fourth and fifth item
-	fmt.Println(t[3:5], len(t[3:5])) //What is the length of this
+	fmt.Println(len(t), t)          	 //What is t in this length
+	fmt.Println(t[2])               	 //What is the third byte
+	fmt.Println(t[:2])               	 //Two elements after third
+	fmt.Println(t[2:])              	 //Everything after two
+	fmt.Println(t[3:5])              	 //Fourth and fifth item
+	fmt.Println(t[3:5], len(t[3:5])) 	 //What is the length of this
 
 }
 
@@ -102,23 +102,23 @@ Can be used as map key
 
 /*
 
-var w = [...]int{1, 2, 3}			//Array of len(3)
-var x = []int{0, 0, 0}				//Slice of len(3)
+var w = [...]int{1, 2, 3}				//Array of len(3)
+var x = []int{0, 0, 0}					//Slice of len(3)
 
 func do(a [3]int, b []int) []int {
-	a = b 							//SYNTAX ERROR
-	a[0] = 4 						//w unchanged
-	b[0] = 3						//x changed
+	a = b 						//SYNTAX ERROR
+	a[0] = 4 					//w unchanged
+	b[0] = 3					//x changed
 
 	c := make([]int, 5)				// copies only 3 elts
 	c[4] = 42
-	copy(c, b)						// copies only 3 elts
+	copy(c, b)					// copies only 3 elts
 
 	return c
 }
 
 y:= do (w,x)
-fmt.Printlconst(w, x, y)  			// [1 2 3] [3 0 0] [3 0 0 0 42]
+fmt.Printlconst(w, x, y)  				// [1 2 3] [3 0 0] [3 0 0 0 42]
 
 */
 
@@ -130,14 +130,14 @@ Maps are dictionaries: ondexed by key, returning a value
 
 You can read from a nil map, but insterting will panic
 
-var m map[string]int				//nil, no storage
-p := make(map[string]int)			//non-nil but empty
+var m map[string]int					//nil, no storage
+p := make(map[string]int)				//non-nil but empty
 
 a := p["the"]						//returns 0
 b := m["the"]						//same thing
 m["and"] = 1						//PANIC - nil map
 m = p
-m["and"]++							//OK, same map as p now
+m["and"]++						//OK, same map as p now
 c := p["and"]						//returns 1
 
 mpas are passed by reference; no copying, updating OK
@@ -154,7 +154,7 @@ var m =[string]int{
 var n map[string]int
 
 b := m == n						//SYNTAX ERROR
-c := n == nil					//true
+c := n == nil						//true
 d := len(m)						//3
 3 := cap(m)						//TYPE MISMATCH
 
@@ -166,22 +166,22 @@ d := len(m)						//3
 
 len(s)							String						String length
 
-len(a), cap(a)					Array						Array length, capacity (constant)
+len(a), cap(a)						Array						Array length, capacity (constant)
 
 make(T, x)						Slice						Slice of type T with length x and capacity x
-make(T, x, y)					Slice						Slice of type T with elngth x and capacity y
+make(T, x, y)						Slice						Slice of type T with elngth x and capacity y
 
 copy(c, d)						Slice						Copy from d to c; # = min of the two lengths
-c = append(c, d)				Slice						append d to c and return a new slice result
+c = append(c, d)					Slice						append d to c and return a new slice result
 
-len(s), cap(s)					Slice						Slice length and capacity
+len(s), cap(s)						Slice						Slice length and capacity
 
-make(T)							Map							Map of type T
-make(T, x)						Map							Map of type T with space hint for x elements
+make(T)							Map						Map of type T
+make(T, x)						Map						Map of type T with space hint for x elements
 
-delete(m, k)					Map							Delete key k (if present, else no change)
+delete(m, k)						Map						Delete key k (if present, else no change)
 
-len(m)							Map							Map length
+len(m)							Map						Map length
 
 */
 
@@ -197,9 +197,9 @@ var m map[string]int
 
 l := len(s)						//length of nil slice is zero
 
-i, ok := m["int"]				//0, false for any missing key
+i, ok := m["int"]					//0, false for any missing key
 
-for _, v := range s{			//skip if s is nil or empty
+for _, v := range s{					//skip if s is nil or empty
 	...
 }
 
