@@ -2,7 +2,7 @@
 | Date | Video Link | Notes | Completed |
 | ---- | ---------- | ----- | --------- |
 | 09/11/2023 | [Class 05](https://www.youtube.com/watch?v=pHl9r3B2DFI&list=PLoILbKo9rG3skRCj37Kn5Zj803hhiuRK6&index=11) | [Arrays, Maps, and Slices](https://github.com/ACHarrison32/4143-PLC/blob/main/Lecture%20Notes/Week%203-4/Arrays_Slices_Maps.go) | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/index.png" width="10">|
-| 09/11/2023 | [Class 10](https://www.youtube.com/watch?v=pHl9r3B2DFI&list=PLoILbKo9rG3skRCj37Kn5Zj803hhiuRK6&index=11) | [Slices in Detail]() | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/images.png" width="10">|
+| 09/11/2023 | [Class 10](https://www.youtube.com/watch?v=pHl9r3B2DFI&list=PLoILbKo9rG3skRCj37Kn5Zj803hhiuRK6&index=11) | [Slices in Detail](https://github.com/ACHarrison32/4143-PLC/blob/main/Lecture%20Notes/Week%203-4/Slices_in_Detail.go) | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/index.png" width="10">|
 | 09/11/2023 | [Class 12](https://www.youtube.com/watch?v=0m6iFd9N_CY&list=PLoILbKo9rG3skRCj37Kn5Zj803hhiuRK6&index=13) | [Structs]() | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/images.png" width="10">|
 | 09/13/2023 | [Pointers](https://www.youtube.com/watch?v=mqH21m0MsWk) | [Pointers]() | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/images.png" width="10">|
 | 09/13/2023 | [Memory Management](https://www.youtube.com/watch?v=G1SP9uDJD0g&t=29s) | [Memory Mangement]() | <img src="https://github.com/ACHarrison32/4883-PT-Harrison/blob/main/images.png" width="10">|
