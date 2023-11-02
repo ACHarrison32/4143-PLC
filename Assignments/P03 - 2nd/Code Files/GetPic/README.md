@@ -1,8 +1,8 @@
 
-| # | File Link | Description |
-| - | -------- | ----------- | 
-| 1 | [Get Picture]() | Code to get the picture for editing |
-| 2 | [Colors ]() | Code to print out the pixel  |
-| 3 | [Gray Scale ]() | Code to make image gray scale |
-| 4 | [Text ]() | Code that adds a message onto the image |
+| # | File Link | 
+| - | -------- |
+| 1 | [Downloaded Image](https://github.com/ACHarrison32/4143-PLC/blob/main/Assignments/P03%20-%202nd/Code%20Files/GetPic/downloaded_image.jpg) | 
+| 2 | [Colors ]() | 
+| 3 | [Gray Scale ]() |
+| 4 | [Text ]() |
 
