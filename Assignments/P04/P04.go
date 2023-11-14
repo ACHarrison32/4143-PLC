@@ -87,11 +87,11 @@ func main() {
 		"https://images.unsplash.com/photo-1698778573682-346d219402b5?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=640",
 		"https://unsplash.com/photos/Bs2jGUWu4f8/download?ixid=M3wxMjA3fDB8MXx0b3BpY3x8NnNNVmpUTFNrZVF8fHx8fDJ8fDE2OTg5MDc1MDh8&w=640",
 		// My 5 Images
-		"https://unsplash.com/photos/a-stack-of-money-sitting-on-top-of-a-table-M7iMdnG4R_g",
-		"https://pixabay.com/photos/bird-kingfisher-waterfowl-beak-8310183/",
-		"https://www.pexels.com/photo/silhouette-of-woman-during-thunderstorm-18705295/",
-		"https://stocksnap.io/photo/fall-table-AI1N2XNR9H",
-		"https://www.shopify.com/stock-photos/photos/photo-of-a-cityscape-with-a-ferris-wheel",
+		"https://unsplash.com/photos/IigBPm2VWUM/download?ixid=M3wxMjA3fDB8MXx0b3BpY3x8NnNNVmpUTFNrZVF8fHx8fDJ8fDE2OTg5MDc1MDh8&w=640",
+		"https://unsplash.com/photos/IvJBpwlF9EQ/download?ixid=M3wxMjA3fDB8MXx0b3BpY3x8NnNNVmpUTFNrZVF8fHx8fDJ8fDE2OTg5MDc1MDh8&w=640",
+		"https://www.pexels.com/photo/18705295/download?ixid=M3wxMjA3fDB8MXx0b3BpY3x8NnNNVmpUTFNrZVF8fHx8fDJ8fDE2OTg5MDc1MDh8&w=640",
+		"https://www.pexels.com/photo/18346899/download?ixid=M3wxMjA3fDB8MXx0b3BpY3x8NnNNVmpUTFNrZVF8fHx8fDJ8fDE2OTg5MDc1MDh8&w=640",
+		"https://unsplash.com/photos/M7iMdnG4R_g/download?ixid=M3wxMjA3fDB8MXx0b3BpY3x8NnNNVmpUTFNrZVF8fHx8fDJ8fDE2OTg5MDc1MDh8&w=640",
 	}
 
 	// Sequential download
