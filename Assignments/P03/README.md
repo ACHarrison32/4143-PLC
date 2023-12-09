@@ -1,5 +1,5 @@
 # :framed_picture: P03 - Image ASCII Art
-## :bookmark_tabs: Assignment Description:
+## :bookmark_tabs: Assignment Description
 ### Extend and add functionality to P02 by doing more than simply drawing on an image. 
 ### Create a collection of packages that do the following:
 - Download an image from the web
