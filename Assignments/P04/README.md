@@ -1,5 +1,5 @@
 # :floppy_disk: P04 - Concurrent Image Downloader
-## :bookmark_tabs: Assignment Description:
+## :bookmark_tabs: Assignment Description
 ### The goal of this assignment is to understand and implement basic concurrency in Go. 
 ### Write a program that concurrently downloads a set of images from given URLs and saves them to disk. 
 ### By comparing the time taken to download images sequentially vs. concurrently, the benefits of concurrency for I/O-bound tasks will be observed.
